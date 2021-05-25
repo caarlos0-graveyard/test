@@ -14,3 +14,7 @@ changelog:
 #   gitlab:
 #     owner: foo
 #     name: bar
+announce:
+  twitter:
+    enabled: true
+    message_template: 'test tweet plz ignore!\n{{ .ProjectName }} {{ .Tag }} is out! Check it out at https://github.com/caarlos0/test/releases/tag/{{ .Tag }}'
