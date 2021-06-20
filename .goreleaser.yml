@@ -7,6 +7,8 @@ builds:
   - linux
 changelog:
   skip: true
+nfpm:
+- formats: ['deb', 'rpm', 'apk']
 # gitlab_urls:
 #   api: https://localhost:443/foo/bar
 #   download: https://localhost:443/downloads
@@ -14,7 +16,9 @@ changelog:
 #   gitlab:
 #     owner: foo
 #     name: bar
-announce:
-  twitter:
-    enabled: true
-    message_template: 'test tweet plz ignore!\n{{ .ProjectName }} {{ .Tag }} is out! Check it out at https://github.com/caarlos0/test/releases/tag/{{ .Tag }}'
+# announce:
+#   twitter:
+#     enabled: true
+#     message_template: 'test tweet plz ignore!\n{{ .ProjectName }} {{ .Tag }} is out! Check it out at https://github.com/caarlos0/test/releases/tag/{{ .Tag }}'
+furies:
+- account: caarlos0
