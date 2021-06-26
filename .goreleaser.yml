@@ -5,10 +5,12 @@ builds:
   - CGO_ENABLED=0
   goos:
   - linux
+  binary: foobar/test
 changelog:
   skip: true
-nfpm:
-- formats: ['deb', 'rpm', 'apk']
+nfpms:
+- id: packages
+  formats: ['deb', 'rpm', 'apk']
 # gitlab_urls:
 #   api: https://localhost:443/foo/bar
 #   download: https://localhost:443/downloads
@@ -20,5 +22,27 @@ nfpm:
 #   twitter:
 #     enabled: true
 #     message_template: 'test tweet plz ignore!\n{{ .ProjectName }} {{ .Tag }} is out! Check it out at https://github.com/caarlos0/test/releases/tag/{{ .Tag }}'
-furies:
-- account: caarlos0
+# furies:
+# - account: caarlos0
+
+brews:
+  - tap:
+      owner: caarlos0
+      name: homebrew-tap
+    folder: Formula
+scoop:
+  bucket:
+    owner: caarlos0
+    name: scoop-bucket
+snapcrafts:
+  - name_template: '{{ .ProjectName }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
+    summary: asdasd
+    description: asdadasd
+    grade: stable
+    confinement: classic
+
+publishers:
+  - name: fury.io
+    ids:
+    - packages
+    cmd: ./scripts/fury-upload.sh {{ .ArtifactName }}
