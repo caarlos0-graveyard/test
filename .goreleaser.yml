@@ -5,6 +5,11 @@ builds:
   - CGO_ENABLED=0
   goos:
   - linux
+  - darwin
+  - windows
+  goarch:
+  - arm64
+  - amd64
   binary: foo
 changelog:
   skip: true
@@ -52,13 +57,13 @@ publishers:
 
 dockers:
 - image_templates:
-  - caarlos0/test::{{ .Version }}-amd64
+  - caarlos0/test:{{ .Version }}-amd64
   goarch: amd64
   use: podman
   build_flag_templates:
   - --platform=linux/amd64
 - image_templates:
-  - caarlos0/test::{{ .Version }}-arm64
+  - caarlos0/test:{{ .Version }}-arm64
   goarch: arm64
   use: podman
   build_flag_templates:
@@ -69,4 +74,4 @@ docker_manifests:
   use: podman
   image_templates:
   - caarlos0/test:{{ .Version }}-amd64
-  - caarlos0/test:{{ .Version }}-arm64v8
+  - caarlos0/test:{{ .Version }}-arm64
