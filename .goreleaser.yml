@@ -52,18 +52,21 @@ publishers:
 
 dockers:
 - image_templates:
-  - caarlos0/test:foo-amd64
+  - caarlos0/test::{{ .Version }}-amd64
   goarch: amd64
+  use: podman
   build_flag_templates:
   - --platform=linux/amd64
 - image_templates:
-  - caarlos0/test:foo-arm64
+  - caarlos0/test::{{ .Version }}-arm64
   goarch: arm64
+  use: podman
   build_flag_templates:
   - --platform=linux/arm64/v8
 
 docker_manifests:
 - name_template: caarlos0/test:{{ .Version }}
+  use: podman
   image_templates:
   - caarlos0/test:{{ .Version }}-amd64
   - caarlos0/test:{{ .Version }}-arm64v8
