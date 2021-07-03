@@ -5,7 +5,7 @@ builds:
   - CGO_ENABLED=0
   goos:
   - linux
-  binary: foobar/test
+  binary: foo
 changelog:
   skip: true
 nfpms:
@@ -45,4 +45,25 @@ publishers:
   - name: fury.io
     ids:
     - packages
-    cmd: ./scripts/fury-upload.sh {{ .ArtifactName }}
+    env:
+      - 'FURY_TOKEN={{ .Env.FURY_TOKEN }}'
+    cmd: ./fury.sh {{ .ArtifactName }}
+
+
+dockers:
+- image_templates:
+  - caarlos0/test:foo-amd64
+  goarch: amd64
+  build_flag_templates:
+  - --platform=linux/amd64
+- image_templates:
+  - caarlos0/test:foo-arm64
+  goarch: arm64
+  build_flag_templates:
+  - --platform=linux/arm64/v8
+
+docker_manifests:
+- name_template: caarlos0/test:{{ .Version }}
+  image_templates:
+  - caarlos0/test:{{ .Version }}-amd64
+  - caarlos0/test:{{ .Version }}-arm64v8
