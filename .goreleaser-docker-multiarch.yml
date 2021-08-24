@@ -27,3 +27,12 @@ docker_manifests:
   image_templates:
   - caarlos0/gmarchtest:{{ .Version }}-amd64
   - caarlos0/gmarchtest:{{ .Version }}-arm64
+signs:
+- cmd: cosign
+  stdin: '{{ .Env.COSIGN_PWD }}'
+  args: ["sign-blob", "-key=cosign.key", "-output=${signature}", "${artifact}"]
+  artifacts: all
+
+docker_signs:
+- artifacts: all
+  stdin: '{{ .Env.COSIGN_PWD }}'
