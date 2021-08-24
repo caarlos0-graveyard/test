@@ -12,12 +12,10 @@ builds:
   - arm64
 dockers:
 - image_templates: ["caarlos0/gmarchtest:{{ .Version }}-amd64"]
-  binaries: ["mybin"]
   use_buildx: true
   dockerfile: Dockerfile.multiarch
   build_flag_templates: ["--platform=linux/amd64"]
 - image_templates: ["caarlos0/gmarchtest:{{ .Version }}-arm64"]
-  binaries: ["mybin"]
   use_buildx: true
   goarch: arm64
   dockerfile: Dockerfile.multiarch
