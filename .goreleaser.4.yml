@@ -12,46 +12,6 @@ builds:
   - windows
   goarch:
   - amd64
-- binary: foo
-  id: foo
-  env:
-  - CGO_ENABLED=0
-  main: ./foo/main.go
-  goos:
-  - darwin
-  - linux
-  - windows
-  goarch:
-  - amd64
-  - 386
-- binary: bar
-  id: bar
-  env:
-  - CGO_ENABLED=0
-  main: ./bar/main.go
-  goos:
-  - linux
-  - darwin
-  - windows
-  goarch:
-  - amd64
-  - 386
-archives:
-- id: targz
-  replacements:
-    darwin: Darwin
-    linux: Linux
-    windows: Windows
-    386: i386
-    amd64: x86_64
-- id: binaries
-  replacements:
-    darwin: Darwin
-    linux: Linux
-    windows: Windows
-    386: i386
-    amd64: x86_64
-  format: binary
 checksum:
   name_template: 'checksums.txt'
 snapshot:
@@ -63,7 +23,7 @@ changelog:
     - '^docs:'
     - '^test:'
 brews:
-- github:
+- tap:
     owner: caarlos0
     name: test
   folder: Formula
