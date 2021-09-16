@@ -1,22 +1,12 @@
 {
-    "version": "20.1.0",
+    "version": "24.3.1",
     "architecture": {
-        "32bit": {
-            "url": "https://github.com/caarlos0/test/releases/download/v20.1.0/test_20.1.0_Windows_i386.tar.gz",
-            "bin": [
-                "foo.exe",
-                "bar.exe"
-            ],
-            "hash": "c3705b9b0e95cd3f5f37286fdafe2840ee086bcd559f450b462b0ebd3bbcfc71"
-        },
         "64bit": {
-            "url": "https://github.com/caarlos0/test/releases/download/v20.1.0/test_20.1.0_Windows_x86_64.tar.gz",
+            "url": "https://github.com/caarlos0-graveyard/test/releases/download/v24.3.1/test_24.3.1_windows_amd64.tar.gz",
             "bin": [
-                "moises.exe",
-                "foo.exe",
-                "bar.exe"
+                "moises.exe"
             ],
-            "hash": "b5ec859380de918b860c09b4d8d0fa8c6edbeadf563e87b93bbaa5c6eaacf533"
+            "hash": "80034e0b017cef065e09d0c5e5266500c736e79afa98d7ef824589a12b7080fe"
         }
     }
 }
