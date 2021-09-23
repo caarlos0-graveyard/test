@@ -5,6 +5,7 @@ changelog:
       - (?i)moises
 builds:
 - binary: moises
+  id: moises
   env:
   - CGO_ENABLED=0
   main: ./main.go
@@ -14,6 +15,7 @@ builds:
   goarch:
   - amd64
 - binary: foo
+  id: foo
   env:
   - CGO_ENABLED=0
   main: ./foo/main.go
@@ -25,6 +27,7 @@ builds:
   - amd64
   - 386
 - binary: bar
+  id: bar
   env:
   - CGO_ENABLED=0
   main: ./bar/main.go
@@ -35,6 +38,7 @@ builds:
   - amd64
   - 386
 - binary: foobar
+  id: foobar
   env:
   - CGO_ENABLED=0
   main: ./foobar/main.go
@@ -43,8 +47,9 @@ builds:
     goarch: amd64
   - goos: linux
     goarch: amd64
-brew:
-  github:
+brews:
+-
+  tap:
     owner: caarlos0
     name: homebrew-tap
   folder: Formula
@@ -52,29 +57,27 @@ brew:
   test: |
     system "#{bin}/foo"
     system "#{bin}/moises"
-nfpm:
+nfpms:
+-
   formats:
   - deb
+
 release:
   github:
     owner: caarlos0
     name: test
-archive:
+
+archives:
+-
   name_template: '{{ .ProjectName }}-{{ .Version }}-{{ .Env.GOVERSION }}-{{ .Os }}_{{ .Arch }}'
   replacements:
     darwin: macOS
     amd64: 64bits
     windows: Windaum
-# dockers:
-# - image: caarlos0/moises
-#   binary: moises
-#   dockerfile: Dockerfile.moises
-# - image: caarlos0/foo
-#   binary: foo
-#   dockerfile: Dockerfile.foo
-# - image: caarlos0/bar
-#   binary: bar
-#   dockerfile: Dockerfile.bar
-# snapshot:
-#   publish: true
-#   name_template: '{{.Tag}}-next-{{.Commit}}'
+dockers:
+- image_templates: ["caarlos0/moises:{{.Version}}"]
+  dockerfile: Dockerfile.moises
+- image_templates: ["caarlos0/foo:{{.Version}}"]
+  dockerfile: Dockerfile.foo
+- image_templates: ["caarlos0/bar:{{.Version}}"]
+  dockerfile: Dockerfile.bar
