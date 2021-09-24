@@ -22,10 +22,8 @@ builds:
   goos:
   - darwin
   - linux
-  - windows
   goarch:
   - amd64
-  - 386
 - binary: bar
   id: bar
   env:
@@ -33,20 +31,9 @@ builds:
   main: ./bar/main.go
   goos:
   - linux
-  - windows
+  - darwin
   goarch:
   - amd64
-  - 386
-- binary: foobar
-  id: foobar
-  env:
-  - CGO_ENABLED=0
-  main: ./foobar/main.go
-  ignore:
-  - goos: darwin
-    goarch: amd64
-  - goos: linux
-    goarch: amd64
 brews:
 -
   tap:
@@ -67,13 +54,6 @@ release:
     owner: caarlos0
     name: test
 
-archives:
--
-  name_template: '{{ .ProjectName }}-{{ .Version }}-{{ .Env.GOVERSION }}-{{ .Os }}_{{ .Arch }}'
-  replacements:
-    darwin: macOS
-    amd64: 64bits
-    windows: Windaum
 dockers:
 - image_templates: ["caarlos0/moises:{{.Version}}"]
   dockerfile: Dockerfile.moises
@@ -81,3 +61,7 @@ dockers:
   dockerfile: Dockerfile.foo
 - image_templates: ["caarlos0/bar:{{.Version}}"]
   dockerfile: Dockerfile.bar
+
+announce:
+  discord:
+   enabled: true
