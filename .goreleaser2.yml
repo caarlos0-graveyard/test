@@ -51,7 +51,7 @@ nfpms:
 
 release:
   github:
-    owner: caarlos0
+    owner: caarlos0-graveyard
     name: test
 
 dockers:
