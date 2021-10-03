@@ -1,5 +1,6 @@
 project_name: aaaaaaaaa
 changelog:
+  impl: github
   filters:
     exclude:
       - (?i)moises
@@ -62,6 +63,6 @@ dockers:
 - image_templates: ["caarlos0/bar:{{.Version}}"]
   dockerfile: Dockerfile.bar
 
-announce:
-  discord:
-   enabled: true
+# announce:
+#   discord:
+#    enabled: true
