@@ -1,0 +1,3 @@
+FROM alpine
+COPY mybin /usr/bin/mybin
+ENTRYPOINT ["/usr/bin/mybin"]

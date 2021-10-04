@@ -1,0 +1,7 @@
+builds:
+  - goos:
+    - macos
+    goarch:
+    - amd64
+snapshot:
+  name_template: "{{ .Tag | incminor }}-next"

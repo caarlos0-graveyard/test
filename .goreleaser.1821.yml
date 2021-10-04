@@ -1,0 +1,6 @@
+archives:
+-
+  name_template: "test_{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}{{ .Arm }}"
+  format: binary
+  replacements:
+    darwin: mac

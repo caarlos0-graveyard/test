@@ -1,0 +1,26 @@
+builds:
+- id: foo
+  binary: foo
+  main: main.go
+  env:
+    - GO111MODULE=on
+    - CGO_ENABLED=0
+  goos:
+    - darwin
+  goarch:
+    - amd64
+  ldflags:
+    - -s -w -X main.version={{.Version}}
+
+- id: snap
+  binary: foo-snap
+  main: main.go
+  env:
+    - GO111MODULE=on
+    - CGO_ENABLED=0
+  goos:
+    - darwin
+  goarch:
+    - amd64
+  ldflags:
+    - -s -w -X main.version={{.Version}} -X main.snap=on

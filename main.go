@@ -1,12 +1,7 @@
 package main
 
-func main() {
-	var a = map[string]string{
-		"a": "b",
-		"b": "c",
-	}
+var snap = "off"
 
-	for s, ss := range a {
-		println(s, ss)
-	}
+func main() {
+	println("snap: " + snap)
 }
