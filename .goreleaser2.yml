@@ -55,13 +55,13 @@ release:
     owner: caarlos0-graveyard
     name: test
 
-dockers:
-- image_templates: ["caarlos0/moises:{{.Version}}"]
-  dockerfile: Dockerfile.moises
-- image_templates: ["caarlos0/foo:{{.Version}}"]
-  dockerfile: Dockerfile.foo
-- image_templates: ["caarlos0/bar:{{.Version}}"]
-  dockerfile: Dockerfile.bar
+# dockers:
+# - image_templates: ["caarlos0/moises:{{.Version}}"]
+#   dockerfile: Dockerfile.moises
+# - image_templates: ["caarlos0/foo:{{.Version}}"]
+#   dockerfile: Dockerfile.foo
+# - image_templates: ["caarlos0/bar:{{.Version}}"]
+#   dockerfile: Dockerfile.bar
 
 # announce:
 #   discord:
