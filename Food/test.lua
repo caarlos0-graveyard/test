@@ -1,5 +1,5 @@
 local name = "test"
-local version = "27.0.2"
+local version = "27.1.0"
 
 food = {
     name = name,
@@ -11,62 +11,62 @@ food = {
         {
             os = "linux",
             arch = "amd64",
-            url = "https://github.com/caarlos0-graveyard/test/releases/download/v27.0.2/test_27.0.2_linux_amd64",
-            sha256 = "5041822ab365021f20e4d63e55d7fe61ef96e9fb0aece5500a9d5e6b5d5efa05",
+            url = "https://github.com/caarlos0-graveyard/test/releases/download/v27.1.0/test_27.1.0_linux_amd64",
+            sha256 = "b4d52247d032a2a2e3dc0ba38da85368f511a8b73d09f241464401193a3b8385",
             resources = {
                 {
-                    path = "test_27.0.2_linux_amd64",
-                    installpath = "bin/test_27.0.2_linux_amd64",
+                    path = "test_27.1.0_linux_amd64",
+                    installpath = "bin/test",
                     executable = true
+                },
+            }
+        },
+        {
+            os = "windows",
+            arch = "arm64",
+            url = "https://github.com/caarlos0-graveyard/test/releases/download/v27.1.0/test_27.1.0_windows_arm64.exe",
+            sha256 = "2cce7eb47e37ccc0047217619af7e99b3758cace841525c266a403a7af1707a4",
+            resources = {
+                {
+                    path = "test_27.1.0_windows_arm64.exe",
+                    installpath = "bin\\test.exe",
                 },
             }
         },
         {
             os = "linux",
             arch = "arm64",
-            url = "https://github.com/caarlos0-graveyard/test/releases/download/v27.0.2/test_27.0.2_linux_arm64",
-            sha256 = "5964a0bc93bedde51b0def0f1519ee338ea6dff38a17b58d050c659580595ae4",
+            url = "https://github.com/caarlos0-graveyard/test/releases/download/v27.1.0/test_27.1.0_linux_arm64",
+            sha256 = "91d56d412106f97d2ea6ef9cea5a4f88bc736fa79e56050fb3aa019252e6bbc8",
             resources = {
                 {
-                    path = "test_27.0.2_linux_arm64",
-                    installpath = "bin/test_27.0.2_linux_arm64",
+                    path = "test_27.1.0_linux_arm64",
+                    installpath = "bin/test",
                     executable = true
                 },
             }
         },
         {
             os = "windows",
-            arch = "arm64",
-            url = "https://github.com/caarlos0-graveyard/test/releases/download/v27.0.2/test_27.0.2_windows_arm64.exe",
-            sha256 = "11337c94b2f918c2682070a2d3ae6e1abd706d9d9e85baf37c938bc0b799fdc2",
-            resources = {
-                {
-                    path = "test_27.0.2_windows_arm64.exe",
-                    installpath = "bin\\test_27.0.2_windows_arm64.exe",
-                },
-            }
-        },
-        {
-            os = "windows",
             arch = "amd64",
-            url = "https://github.com/caarlos0-graveyard/test/releases/download/v27.0.2/test_27.0.2_windows_amd64.exe",
-            sha256 = "273363ff0925c26e977b3ed1444494ea4ad293421e3426dc1a84ec8f898a56b1",
+            url = "https://github.com/caarlos0-graveyard/test/releases/download/v27.1.0/test_27.1.0_windows_amd64.exe",
+            sha256 = "6f16461c3b00b5c4b3fecc7ba8a16c6b3ec7c1c3967afe35009a902c9eaef145",
             resources = {
                 {
-                    path = "test_27.0.2_windows_amd64.exe",
-                    installpath = "bin\\test_27.0.2_windows_amd64.exe",
+                    path = "test_27.1.0_windows_amd64.exe",
+                    installpath = "bin\\test.exe",
                 },
             }
         },
         {
             os = "darwin",
             arch = "amd64",
-            url = "https://github.com/caarlos0-graveyard/test/releases/download/v27.0.2/test_27.0.2_darwin_all",
-            sha256 = "84045057e2656a5132bac5b52f4d81433190823a37870d6c9409f03cea3f89b6",
+            url = "https://github.com/caarlos0-graveyard/test/releases/download/v27.1.0/test_27.1.0_darwin_all",
+            sha256 = "bc45f6b604bebbd119c7adca768eee3a04fa94d307176748603963fdd1a32311",
             resources = {
                 {
-                    path = "test_27.0.2_darwin_all",
-                    installpath = "bin/test_27.0.2_darwin_all",
+                    path = "test_27.1.0_darwin_all",
+                    installpath = "bin/test",
                     executable = true
                 },
             }
@@ -74,12 +74,12 @@ food = {
         {
             os = "darwin",
             arch = "arm64",
-            url = "https://github.com/caarlos0-graveyard/test/releases/download/v27.0.2/test_27.0.2_darwin_all",
-            sha256 = "84045057e2656a5132bac5b52f4d81433190823a37870d6c9409f03cea3f89b6",
+            url = "https://github.com/caarlos0-graveyard/test/releases/download/v27.1.0/test_27.1.0_darwin_all",
+            sha256 = "bc45f6b604bebbd119c7adca768eee3a04fa94d307176748603963fdd1a32311",
             resources = {
                 {
-                    path = "test_27.0.2_darwin_all",
-                    installpath = "bin/test_27.0.2_darwin_all",
+                    path = "test_27.1.0_darwin_all",
+                    installpath = "bin/test",
                     executable = true
                 },
             }
