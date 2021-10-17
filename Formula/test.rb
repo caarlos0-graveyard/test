@@ -5,29 +5,35 @@
 class Test < Formula
   desc ""
   homepage ""
-  version "27.1.0"
+  version "27.1.1"
   bottle :unneeded
 
   on_macos do
-    url "https://github.com/caarlos0-graveyard/test/releases/download/v27.1.0/test_27.1.0_darwin_all"
-    sha256 "bc45f6b604bebbd119c7adca768eee3a04fa94d307176748603963fdd1a32311"
+    url "https://github.com/caarlos0-graveyard/test/releases/download/v27.1.1/test_27.1.1_darwin_all"
+    sha256 "454d423b25b6ea81addb3df4c89b2270fa8c79cbb4205b2a0a14429a37e0eb40"
+
+    def install
+      bin.install "test_27.1.1_darwin_all" => "test"
+    end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v27.1.0/test_27.1.0_linux_amd64"
-      sha256 "b4d52247d032a2a2e3dc0ba38da85368f511a8b73d09f241464401193a3b8385"
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v27.1.1/test_27.1.1_linux_amd64"
+      sha256 "703f12562582e03ddde518a49508a10dbd7795309ae25a522dce273e51f30217"
+
+      def install
+        bin.install "test_27.1.1_linux_amd64" => "test"
+      end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v27.1.0/test_27.1.0_linux_arm64"
-      sha256 "91d56d412106f97d2ea6ef9cea5a4f88bc736fa79e56050fb3aa019252e6bbc8"
-    end
-  end
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v27.1.1/test_27.1.1_linux_arm64"
+      sha256 "bb12badfea8eba86b86536a2a1a0e2f818de24d23de688b7d69af5aab5783bf6"
 
-  def install
-    bin.install "test_27.1.0_linux_amd64" => "test"
-    bin.install "test_27.1.0_linux_arm64" => "test"
-    bin.install "test_27.1.0_darwin_all" => "test"
+      def install
+        bin.install "test_27.1.1_linux_arm64" => "test"
+      end
+    end
   end
 
   def caveats; <<~EOS
