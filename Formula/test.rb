@@ -5,33 +5,33 @@
 class Test < Formula
   desc ""
   homepage ""
-  version "27.1.1"
+  version "27.1.3"
   bottle :unneeded
 
   on_macos do
-    url "https://github.com/caarlos0-graveyard/test/releases/download/v27.1.1/test_27.1.1_darwin_all"
-    sha256 "454d423b25b6ea81addb3df4c89b2270fa8c79cbb4205b2a0a14429a37e0eb40"
+    url "https://github.com/caarlos0-graveyard/test/releases/download/v27.1.3/test_27.1.3_darwin_all"
+    sha256 "e30cc4ae74061e44a6fae422766701fff74669c6e43ee127dfec326a966c00c0"
 
     def install
-      bin.install "test_27.1.1_darwin_all" => "test"
+      bin.install "test_27.1.3_darwin_all" => "test"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v27.1.1/test_27.1.1_linux_amd64"
-      sha256 "703f12562582e03ddde518a49508a10dbd7795309ae25a522dce273e51f30217"
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v27.1.3/test_27.1.3_linux_amd64"
+      sha256 "1959178ca0836a5cdceec417675233f90862963b05708cb1f725c7b1fb46b400"
 
       def install
-        bin.install "test_27.1.1_linux_amd64" => "test"
+        bin.install "test_27.1.3_linux_amd64" => "test"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v27.1.1/test_27.1.1_linux_arm64"
-      sha256 "bb12badfea8eba86b86536a2a1a0e2f818de24d23de688b7d69af5aab5783bf6"
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v27.1.3/test_27.1.3_linux_arm64"
+      sha256 "9a038a09cb2e2a3c40e1147898f3483703d5f4ca4086e724d23f627ecfd8fc11"
 
       def install
-        bin.install "test_27.1.1_linux_arm64" => "test"
+        bin.install "test_27.1.3_linux_arm64" => "test"
       end
     end
   end
