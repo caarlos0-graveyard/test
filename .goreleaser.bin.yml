@@ -20,7 +20,7 @@ archives:
 brews:
 - tap:
     owner: caarlos0
-    name: test
+    name: homebrew-tap
   folder: Formula
   caveats: "Test formula, dont use it. It doesnt do anything"
 
