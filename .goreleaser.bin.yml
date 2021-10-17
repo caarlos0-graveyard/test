@@ -17,12 +17,12 @@ universal_binaries:
 archives:
 - format: binary
 
-# brews:
-# - tap:
-#     owner: caarlos0
-#     name: test
-#   folder: Formula
-#   caveats: "Test formula, dont use it. It doesnt do anything"
+brews:
+- tap:
+    owner: caarlos0
+    name: test
+  folder: Formula
+  caveats: "Test formula, dont use it. It doesnt do anything"
 
 rigs:
 - rig:
