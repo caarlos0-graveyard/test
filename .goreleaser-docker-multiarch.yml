@@ -27,10 +27,23 @@ docker_manifests:
   - caarlos0/gmarchtest:{{ .Version }}-arm64
 signs:
 - cmd: cosign
-  stdin: '{{ .Env.COSIGN_PWD }}'
-  args: ["sign-blob", "-key=cosign.key", "-output=${signature}", "${artifact}"]
+  env:
+  - COSIGN_EXPERIMENTAL=1
+  args:
+  - "sign-blob"
+  - "--rekor-url=https://rekor.sigstore.dev"
+  - "--oidc-issuer=https://oauth2.sigstore.dev/auth"
+  - "--output=${signature}"
+  - "${artifact}"
   artifacts: all
 
 docker_signs:
 - artifacts: all
-  stdin: '{{ .Env.COSIGN_PWD }}'
+  env:
+  - COSIGN_EXPERIMENTAL=1
+  args:
+  - "sign"
+  - "--rekor-url=https://rekor.sigstore.dev"
+  - "--oidc-issuer=https://oauth2.sigstore.dev/auth"
+  - "${artifact}"
+
