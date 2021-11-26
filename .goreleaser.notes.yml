@@ -1,0 +1,45 @@
+project_name: test
+builds:
+- binary: moises
+  id: moises
+  env:
+  - CGO_ENABLED=0
+  main: ./main.go
+  goos:
+  - darwin
+  - linux
+  goarch:
+  - amd64
+
+release:
+  github:
+    owner: caarlos0-graveyard
+    name: test
+  footer: |
+    **Full Changelog**: https://github.com/caarlos0-graveyard/test/{{ .PreviousTag }}...{{ .Tag }}
+
+    ## What to do next?
+
+    - yada yada
+
+changelog:
+  sort: asc
+  use: github
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
+    - '^chore'
+    - Merge pull request
+    - Merge remote-tracking branch
+    - Merge branch
+    - go mod tidy
+  groups:
+    - title: 'New Features'
+      regexp: "^.*feat[(\\w)]*:+.*$"
+      order: 0
+    - title: 'Bug fixes'
+      regexp: "^.*fix[(\\w)]*:+.*$"
+      order: 10
+    - title: Other work
+      order: 999
