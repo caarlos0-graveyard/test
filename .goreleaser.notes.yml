@@ -15,6 +15,7 @@ release:
   github:
     owner: caarlos0-graveyard
     name: test
+  mode: append
   footer: |
     **Full Changelog**: https://github.com/caarlos0-graveyard/test/compare/{{ .PreviousTag }}...{{ .Tag }}
 
