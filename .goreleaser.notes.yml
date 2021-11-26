@@ -16,7 +16,7 @@ release:
     owner: caarlos0-graveyard
     name: test
   footer: |
-    **Full Changelog**: https://github.com/caarlos0-graveyard/test/{{ .PreviousTag }}...{{ .Tag }}
+    **Full Changelog**: https://github.com/caarlos0-graveyard/test/compare/{{ .PreviousTag }}...{{ .Tag }}
 
     ## What to do next?
 
