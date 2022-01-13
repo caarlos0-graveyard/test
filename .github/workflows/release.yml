@@ -11,4 +11,4 @@ jobs:
       docker_username: caarlos0
     secrets:
       docker_password: ${{ secrets.DOCKER_PASSWORD }}
-      github_token: ${{ secrets.GH_PAT }}
+      gh_pat: ${{ secrets.GH_PAT }}
