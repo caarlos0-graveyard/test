@@ -1,0 +1,14 @@
+name: release
+
+on:
+  push:
+    tags:
+
+jobs:
+  goreleaser:
+    uses: caarlos0/goreleaserfiles/.github/workflows/goreleaser.yml@main
+    with:
+      docker_username: caarlos0
+    secrets:
+      docker_password: ${{ secrets.DOCKER_PASSWORD }}
+      github_token: ${{ secrets.GH_PAT }}
