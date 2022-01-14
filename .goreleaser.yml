@@ -10,5 +10,5 @@ variables:
   maintainer: "Carlos A Becker <carlos@beckeer.software>"
   homepage: "https://becker.software"
   docker_io_registry_owner: caarlos0
-  ghcr_io_egistry_owner: caarlos0-graveyard
+  ghcr_io_registry_owner: caarlos0-graveyard
   brew_owner: caarlos0
