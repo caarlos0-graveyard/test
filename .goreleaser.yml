@@ -2,6 +2,8 @@ includes:
   - from_url:
       url: charmbracelet/meta/main/goreleaser.yaml
 
+project_name: foo
+
 variables:
   description: "just me testing"
   github_url: "https://github.com/caarlos0/test"
