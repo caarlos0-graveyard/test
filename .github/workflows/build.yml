@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   nightly:
-    uses: charmbracelet/meta/.github/workflows/nighly.yml@nightly
+    uses: charmbracelet/meta/.github/workflows/nightly.yml@nightly
     secrets:
       docker_username: caarlos0
       docker_token: ${{ secrets.DOCKER_PASSWORD }}
