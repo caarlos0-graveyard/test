@@ -1,0 +1,11 @@
+name: build
+
+on: [push, pull_request]
+
+jobs:
+  nightly:
+    uses: charmbracelet/meta/.github/workflows/nighly.yml@nightly
+    secrets:
+      docker_username: caarlos0
+      docker_token: ${{ secrets.DOCKER_PASSWORD }}
+      goreleaser_key: ${{ secrets.GORELEASER_KEY }}
