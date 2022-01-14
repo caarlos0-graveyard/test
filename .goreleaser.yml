@@ -1,99 +1,14 @@
-# This is an example goreleaser.yaml file with some sane defaults.
-# Make sure to check the documentation at http://goreleaser.com
-builds:
-- env:
-  - CGO_ENABLED=1
-  goos:
-  - linux
-  - darwin
-  - windows
-  goarch:
-  - arm64
-  - amd64
-  binary: foo
-changelog:
-  skip: true
-snapshot:
-  name_template: '{{ .Tag | incminor }}-net'
-# gitlab_urls:
-#   api: https://localhost:443/foo/bar
-#   download: https://localhost:443/downloads
-# release:
-#   gitlab:
-#     owner: foo
-#     name: bar
-# announce:
-#   twitter:
-#     enabled: true
-#     message_template: 'test tweet plz ignore!\n{{ .ProjectName }} {{ .Tag }} is out! Check it out at https://github.com/caarlos0/test/releases/tag/{{ .Tag }}'
-# furies:
-# - account: caarlos0
+includes:
+  - from_url:
+      url: charmbracelet/meta/main/goreleaser.yaml
 
-brews:
-  - tap:
-      owner: caarlos0
-      name: homebrew-tap
-    folder: Formula
-scoop:
-  bucket:
-    owner: caarlos0
-    name: scoop-bucket
-# snapcrafts:
-#   - name_template: '{{ .ProjectName }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
-#     summary: asdasd
-#     description: asdadasd
-#     grade: stable
-#     confinement: classic
-
-publishers:
-  - name: fury.io
-    ids:
-    - packages
-    env:
-      - 'FURY_TOKEN={{ .Env.FURY_TOKEN }}'
-    cmd: ./fury.sh {{ .ArtifactName }}
-
-
-dockers:
-- image_templates:
-  - 'ghcr.io/caarlos0/{{ .ProjectName }}:{{ .Tag }}-amd64'
-  - 'caarlos0/{{ .ProjectName }}:{{ .Tag }}-amd64'
-  dockerfile: Dockerfile
-  build_flag_templates:
-  - "--pull"
-  - "--label=org.opencontainers.image.created={{.Date}}"
-  - "--label=org.opencontainers.image.name={{.ProjectName}}"
-  - "--label=org.opencontainers.image.revision={{.FullCommit}}"
-  - "--label=org.opencontainers.image.version={{.Version}}"
-  - "--label=org.opencontainers.image.source=https://github.com/caarlos0/{{ .ProjectName }}"
-  - "--platform=linux/amd64"
-- image_templates:
-  - 'ghcr.io/caarlos0/{{ .ProjectName }}:{{ .Tag }}-arm64'
-  - 'caarlos0/{{ .ProjectName }}:{{ .Tag }}-arm64'
-  dockerfile: Dockerfile
-  build_flag_templates:
-  - "--pull"
-  - "--label=org.opencontainers.image.created={{.Date}}"
-  - "--label=org.opencontainers.image.name={{.ProjectName}}"
-  - "--label=org.opencontainers.image.revision={{.FullCommit}}"
-  - "--label=org.opencontainers.image.version={{.Version}}"
-  - "--label=org.opencontainers.image.source=https://github.com/caarlos0/{{ .ProjectName }}"
-  - "--platform=linux/arm64"
-  goarch: arm64
-docker_manifests:
-- name_template: 'ghcr.io/caarlos0/{{ .ProjectName }}:{{ .Tag }}'
-  image_templates:
-  - 'ghcr.io/caarlos0/{{ .ProjectName }}:{{ .Tag }}-amd64'
-  - 'ghcr.io/caarlos0/{{ .ProjectName }}:{{ .Tag }}-arm64'
-- name_template: 'ghcr.io/caarlos0/{{ .ProjectName }}:latest'
-  image_templates:
-  - 'ghcr.io/caarlos0/{{ .ProjectName }}:{{ .Tag }}-amd64'
-  - 'ghcr.io/caarlos0/{{ .ProjectName }}:{{ .Tag }}-arm64'
-- name_template: 'caarlos0/{{ .ProjectName }}:{{ .Tag }}'
-  image_templates:
-  - 'caarlos0/{{ .ProjectName }}:{{ .Tag }}-amd64'
-  - 'caarlos0/{{ .ProjectName }}:{{ .Tag }}-arm64'
-- name_template: 'caarlos0/{{ .ProjectName }}:latest'
-  image_templates:
-  - 'caarlos0/{{ .ProjectName }}:{{ .Tag }}-amd64'
-  - 'caarlos0/{{ .ProjectName }}:{{ .Tag }}-arm64'
+variables:
+  # main: ""
+  description: "just me testing"
+  github_url: "https://github.com/caarlos0/test"
+  maintainer: "Carlos A Becker <carlos@beckeer.software>"
+  homepage: "https://becker.software"
+  # commit_author_name: ""
+  # commit_author_email: ""
+  docker_io_registry_owner: caarlos0
+  ghcr_io_egistry_owner: caarlos0-graveyard

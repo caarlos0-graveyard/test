@@ -6,9 +6,9 @@ on:
 
 jobs:
   goreleaser:
-    uses: caarlos0/goreleaserfiles/.github/workflows/goreleaser.yml@main
-    with:
-      docker_username: caarlos0
+    uses: charmbracelet/meta/.github/workflows/goreleaser.yml@main
     secrets:
-      docker_password: ${{ secrets.DOCKER_PASSWORD }}
+      docker_username: caarlos0
+      docker_token: ${{ secrets.DOCKER_PASSWORD }}
       gh_pat: ${{ secrets.GH_PAT }}
+      goreleaser_key: ${{ secrets.GORELEASER_KEY }}
