@@ -1,6 +1,6 @@
 includes:
   - from_url:
-      url: charmbracelet/meta/main/goreleaser.yaml
+      url: charmbracelet/meta/bb22d197802c7b6586af5600a6dfaf3199b05eeb/goreleaser.yaml
 
 project_name: foo
 
