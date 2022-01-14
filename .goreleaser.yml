@@ -3,12 +3,10 @@ includes:
       url: charmbracelet/meta/main/goreleaser.yaml
 
 variables:
-  # main: ""
   description: "just me testing"
   github_url: "https://github.com/caarlos0/test"
   maintainer: "Carlos A Becker <carlos@beckeer.software>"
   homepage: "https://becker.software"
-  # commit_author_name: ""
-  # commit_author_email: ""
   docker_io_registry_owner: caarlos0
   ghcr_io_egistry_owner: caarlos0-graveyard
+  brew_owner: caarlos0
