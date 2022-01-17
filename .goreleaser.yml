@@ -10,6 +10,8 @@ variables:
   brew_owner: caarlos0
   main: "."
   binary_name: ""
+  brew_commit_author_name: ""
+  brew_commit_author_email: ""
 
 before:
   hooks:
