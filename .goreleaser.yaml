@@ -33,6 +33,7 @@ changelog:
 
 pkgbuilds:
   - homepage: 'https://carlosbecker.com'
+    name: tasktime-bin
     description: 'testing the goreleaser integration, please disregard'
     maintainer: 'Carlos Alexandro Becker <carlos at becker dot software>'
     license: MIT
