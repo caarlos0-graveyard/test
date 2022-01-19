@@ -94,7 +94,7 @@ snapshot:
   name_template: "{{ incpatch .Version }}-devel"
 
 nightly:
-  name_template: "devel-{{ .ShortCommit }}"
+  name_template: "{{ incpatch .Version }}-devel-{{ .ShortCommit }}"
 
 changelog:
   sort: asc
