@@ -1,0 +1,30 @@
+project_name: example
+
+monorepo:
+  tag_prefix: example-
+  dir: .
+
+builds:
+  - id: example
+    main: .
+    binary: example
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+
+changelog:
+  skip: true
+
+checksum:
+  name_template: 'checksums.txt'
+
+archives:
+  - id: example-archive
+    name_template: 'example-v{{ .Version }}-{{ .Os }}-{{ .Arch }}'
+    builds:
+      - example
