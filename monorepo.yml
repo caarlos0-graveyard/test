@@ -28,3 +28,7 @@ archives:
     name_template: 'example-v{{ .Version }}-{{ .Os }}-{{ .Arch }}'
     builds:
       - example
+
+announce:
+  twitter:
+    enabled: true
