@@ -26,6 +26,11 @@ archives:
     builds:
       - example
 
+dockers:
+- image_templates:
+  - caarlos0/example-monorepo
+  dockerfile: Dockerfile.example
+
 announce:
   twitter:
     enabled: true
