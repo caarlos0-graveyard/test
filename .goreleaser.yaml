@@ -15,6 +15,7 @@ builds:
 release:
   draft: false
   replace_existing_draft: true
+  name_template: '{{.Version}}'
 
 nightly:
   keep_single_release: true
