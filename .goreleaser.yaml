@@ -17,7 +17,6 @@ release:
   replace_existing_draft: true
   name_template: '{{.Version}}'
 
-# nightly:
-#   publish_release: true
-#   keep_single_release: true
-#   tag_name: nightly
+nightly:
+  publish_release: true
+  keep_single_release: true
