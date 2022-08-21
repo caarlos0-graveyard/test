@@ -15,3 +15,6 @@ builds:
 release:
   draft: true
   replace_existing_draft: true
+
+nightly:
+  keep_single_release: true
