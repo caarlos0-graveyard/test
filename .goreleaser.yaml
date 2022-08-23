@@ -4,8 +4,6 @@ before:
   hooks:
     # You may remove this if you don't use go modules.
     - go mod tidy
-    # you may remove this if you don't need go generate
-    - go generate ./...
 builds:
   - env:
       - CGO_ENABLED=0
@@ -16,7 +14,8 @@ release:
   draft: false
   replace_existing_draft: true
   name_template: '{{.Version}}'
+  target_commitish: '{{ .Commit }}'
 
-nightly:
-  publish_release: true
-  keep_single_release: true
+# nightly:
+#   publish_release: true
+#   keep_single_release: true
