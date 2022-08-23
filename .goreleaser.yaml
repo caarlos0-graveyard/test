@@ -14,7 +14,7 @@ release:
   draft: false
   replace_existing_draft: true
   name_template: '{{.Version}}'
-  target_commitish: 'main'
+  target_commitish: 'master'
   # github:
   #   owner: caarlos0-graveyard
   #   name: test2
