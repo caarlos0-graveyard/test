@@ -14,7 +14,10 @@ release:
   draft: false
   replace_existing_draft: true
   name_template: '{{.Version}}'
-  target_commitish: '{{ .Commit }}'
+  target_commitish: 'main'
+  github:
+    owner: caarlos0-graveyard
+    repo: test2
 
 # nightly:
 #   publish_release: true
