@@ -40,7 +40,7 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version: '1.19'
-          cache: true
+          # cache: true
       # - name: dockerhub-login
       #   uses: docker/login-action@49ed152c8eca782a232dede0303416e8f356c37b # v1
       #   with:
