@@ -22,3 +22,21 @@ release:
 nightly:
   publish_release: true
   keep_single_release: true
+
+
+# dockers:
+# - image_templates:
+#   - '{{ if not .IsNightly }}testing:latest-amd64{{ end }}'
+#   dockerfile: false.Dockerfile
+# - image_templates:
+#   - caarlos0/goreleasertest:v{{.Version}}-amd64
+#   dockerfile: true.Dockerfile
+#
+#
+# docker_manifests:
+# - name_template: '{{ if not .IsNightly}}testing:latest{{end}}'
+#   image_templates:
+#   - 'testing:latest-amd64'
+# - name_template: 'caarlos0/goreleasertest:v{{.Version}}'
+#   image_templates:
+#   - caarlos0/goreleasertest:v{{.Version}}-amd64
