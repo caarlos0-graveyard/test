@@ -5,39 +5,41 @@
 class Test < Formula
   desc ""
   homepage ""
-  version "27.1.3"
-  bottle :unneeded
+  version "0.3.3"
 
   on_macos do
-    url "https://github.com/caarlos0-graveyard/test/releases/download/v27.1.3/test_27.1.3_darwin_all"
-    sha256 "e30cc4ae74061e44a6fae422766701fff74669c6e43ee127dfec326a966c00c0"
+    url "https://github.com/caarlos0-graveyard/test/releases/download/v0.3.3/test_0.3.3_darwin_amd64.tar.gz"
+    sha256 "6c0343945041d6230c1409dfc71cb51428f104a1a24e5547dc17b5f7ced18abe"
 
     def install
-      bin.install "test_27.1.3_darwin_all" => "test"
+      bin.install "moises"
+    end
+
+    if Hardware::CPU.arm?
+      def caveats
+        <<~EOS
+          The darwin_arm64 architecture is not supported for the Test
+          formula at this time. The darwin_amd64 binary may work in compatibility
+          mode, but it might not be fully supported.
+        EOS
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v27.1.3/test_27.1.3_linux_amd64"
-      sha256 "1959178ca0836a5cdceec417675233f90862963b05708cb1f725c7b1fb46b400"
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v0.3.3/test_0.3.3_linux_amd64.tar.gz"
+      sha256 "9eb7a9e98f009a917711910aec964ed5e27201f11d49709ff95cbdeb2883df6f"
 
       def install
-        bin.install "test_27.1.3_linux_amd64" => "test"
-      end
-    end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v27.1.3/test_27.1.3_linux_arm64"
-      sha256 "9a038a09cb2e2a3c40e1147898f3483703d5f4ca4086e724d23f627ecfd8fc11"
-
-      def install
-        bin.install "test_27.1.3_linux_arm64" => "test"
+        bin.install "moises"
       end
     end
   end
 
-  def caveats; <<~EOS
-    Test formula, dont use it. It doesnt do anything
-  EOS
+  def caveats
+    <<~EOS
+      Test formula, dont use it. It doesnt do anything
+    EOS
   end
 end
