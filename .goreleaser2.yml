@@ -40,6 +40,9 @@ brews:
   tap:
     owner: caarlos0
     name: homebrew-tap
+    branch: feat-{{.Tag}}
+    pull_request:
+      enabled: true
   folder: Formula
   caveats: "Test formula, dont use it. It doesnt do anything"
   test: |
