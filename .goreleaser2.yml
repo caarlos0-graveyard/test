@@ -37,6 +37,8 @@ builds:
 upx:
   - enabled: true
 report_sizes: true
+gomod:
+  proxy: true
 brews:
 -
   tap:
