@@ -9,16 +9,16 @@ class Example < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/caarlos0-graveyard/test/releases/download/example-v1.4.4/example-v1.4.4-darwin-arm64.tar.gz"
-      sha256 "f4599acb85c313f6aa07e4037d3377c7f98627e1a6371fd572616b829015acb9"
+      url "https://github.com/caarlos0-graveyard/test2/releases/download/example-v1.4.4/example-v1.4.4-darwin-arm64.tar.gz"
+      sha256 "33ff43669a43f5b4fca587baaa24d269a24183950999f176760069a769a2ca73"
 
       def install
         bin.install "example"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/caarlos0-graveyard/test/releases/download/example-v1.4.4/example-v1.4.4-darwin-amd64.tar.gz"
-      sha256 "9467381d22731ed223a4e6be040afaff91fe86c46c241c307e1c7cf6036bf3e9"
+      url "https://github.com/caarlos0-graveyard/test2/releases/download/example-v1.4.4/example-v1.4.4-darwin-amd64.tar.gz"
+      sha256 "22525c59a7e90cb0cf5b9740d74a125d71539eaf8c5c58cc432cb373f203a8a3"
 
       def install
         bin.install "example"
@@ -27,17 +27,17 @@ class Example < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/caarlos0-graveyard/test/releases/download/example-v1.4.4/example-v1.4.4-linux-arm64.tar.gz"
-      sha256 "678250ca03fdd6a7b08db11c5bbb23d66b8d09b5808e0ad65565c50cac25f35d"
+    if Hardware::CPU.intel?
+      url "https://github.com/caarlos0-graveyard/test2/releases/download/example-v1.4.4/example-v1.4.4-linux-amd64.tar.gz"
+      sha256 "a9e226d4729d0700626e913b68348a25b68c633e5053ae8e1ce864ffb772d5ba"
 
       def install
         bin.install "example"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/caarlos0-graveyard/test/releases/download/example-v1.4.4/example-v1.4.4-linux-amd64.tar.gz"
-      sha256 "8ef985d7defbb99d000b1c3606a1641615e9b99d0b7a97ae99f5f8843ce72ee4"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/caarlos0-graveyard/test2/releases/download/example-v1.4.4/example-v1.4.4-linux-arm64.tar.gz"
+      sha256 "e763e945a1e2f210144ea32aa6a2863c26c0a92affa80a845110fe0e948cecd1"
 
       def install
         bin.install "example"
@@ -45,8 +45,9 @@ class Example < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Test formula, dont use it. It doesnt do anything
-  EOS
+  def caveats
+    <<~EOS
+      Test formula, dont use it. It doesnt do anything
+    EOS
   end
 end
