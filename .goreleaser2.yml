@@ -1,63 +1,120 @@
-project_name: aaaaaaaaa
+# yaml-language-server: $schema=https://goreleaser.com/static/schema-pro.json
+
+project_name: foo
 changelog:
   filters:
     exclude:
       - (?i)moises
 builds:
 - binary: moises
-  id: moises
   env:
   - CGO_ENABLED=0
   main: ./main.go
   goos:
   - darwin
   - linux
+  - windows
   goarch:
   - amd64
-- binary: foo
-  id: foo
-  env:
-  - CGO_ENABLED=0
-  main: ./foo/main.go
-  goos:
-  - darwin
-  - linux
-  goarch:
-  - amd64
-- binary: bar
-  id: bar
-  env:
-  - CGO_ENABLED=0
-  main: ./bar/main.go
-  goos:
-  - linux
-  - darwin
-  goarch:
-  - amd64
-upx:
-  - enabled: true
-report_sizes: true
-gomod:
-  proxy: true
-brews:
--
-  tap:
-    owner: caarlos0
-    name: homebrew-tap
-    # branch: feat-{{.Tag}}
-    # pull_request:
-    #   enabled: true
-  folder: Formula
-  caveats: "Test formula, dont use it. It doesnt do anything"
-  test: |
-    system "#{bin}/foo"
-    system "#{bin}/moises"
-nfpms:
--
-  formats:
-  - deb
 
+nix:
+  - name: test
+    repository:
+      owner: caarlos0-graveyard
+      name: nur
+      pull_request:
+        enabled: true
+        base: caarlos0:nur:master
+    homepage:  https://test
+    description: a test
+    license: mit
+
+# - binary: foo
+#   id: foo
+#   env:
+#   - CGO_ENABLED=0
+#   main: ./foo/main.go
+#   goos:
+#   - darwin
+#   - linux
+#   - windows
+#   goarch:
+#   - amd64
+# - binary: bar
+#   id: bar
+#   env:
+#   - CGO_ENABLED=0
+#   main: ./bar/main.go
+#   goos:
+#   - linux
+#   - darwin
+#   - windows
+#   goarch:
+#   - amd64
+# upx:
+#   - enabled: true
+# report_sizes: true
+# gomod:
+#   proxy: true
+# kos:
+#   - main: .
+#     repository: docker.io/caarlos0/test
+#     sbom: none
+#     bare: true
+#     preserve_import_paths: false
+#     platforms:
+#     - linux/amd64
+#     - linux/arm64
+#     tags: [latest, '{{.Tag}}']
+# archives:
+#   - id: moises
+#     name_template: 'moises_{{.Os}}_{{.Arch}}'
+#     builds:
+#       - moises
+#   - id: foo
+#     name_template: 'foo_{{.Os}}_{{.Arch}}'
+#     builds:
+#       - foo
+#   - id: bar
+#     name_template: 'bar_{{.Os}}_{{.Arch}}'
+#     builds:
+#       - bar
+# brews:
+# -
+#   tap:
+#     owner: caarlos0
+#     name: homebrew-tap
+#     # branch: feat-{{.Tag}}
+#     # pull_request:
+#     #   enabled: true
+#   folder: Formula
+#   caveats: "Test formula, dont use it. It doesnt do anything"
+#   test: |
+#     system "#{bin}/foo"
+#     system "#{bin}/moises"
+# scoops:
+# - bucket:
+#     owner: caarlos0-graveyard
+#     name: test
+#   name: moises
+#   ids: [ moises ]
+# - bucket:
+#     owner: caarlos0-graveyard
+#     name: test
+#   name: bar
+#   ids: [ bar ]
+# - bucket:
+#     owner: caarlos0-graveyard
+#     name: test
+#   name: foo
+#   ids: [ foo ]
+# nfpms:
+# -
+#   formats:
+#   - deb
+#
 release:
+  disable: true
   github:
     owner: caarlos0-graveyard
     name: test

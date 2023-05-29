@@ -1,8 +1,5 @@
 project_name: example
 
-monorepo:
-  tag_prefix: example-
-  dir: .
 
 builds:
   - id: example
@@ -16,6 +13,19 @@ builds:
     goarch:
       - amd64
       - arm64
+
+
+monorepo:
+  tag_prefix: example-
+  dir: .
+
+release:
+  name_template: 'v{{ .Version }}'
+  tag: '{{ .Tag }}'
+  github:
+    owner: caarlos0-graveyard
+    name: test2
+
 
 checksum:
   name_template: 'checksums.txt'
