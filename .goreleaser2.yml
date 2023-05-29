@@ -22,9 +22,13 @@ nix:
     repository:
       owner: caarlos0-graveyard
       name: nur
+      branch: test-update
       pull_request:
         enabled: true
-        base: caarlos0:nur:master
+        base:
+          # owner: caarlos0
+          # name: nur
+          branch: master
     homepage:  https://test
     description: a test
     license: mit
@@ -114,10 +118,11 @@ nix:
 #   - deb
 #
 release:
-  disable: true
+  # disable: true
   github:
     owner: caarlos0-graveyard
     name: test
+
 
 # dockers:
 # - image_templates: ["caarlos0/moises:{{.Version}}"]
