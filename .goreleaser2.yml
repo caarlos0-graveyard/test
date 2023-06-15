@@ -24,13 +24,13 @@ winget:
     short_description: "my test app"
     license: mit
     repository:
-      owner: caarlos0-graveyard
+      owner: caarlos0
       name: winget-pkgs
       branch: "test-update"
       pull_request:
         enabled: true
         base:
-          owner: caarlos0
+          owner: microsoft
           name: winget-pkgs
           branch: master
 
