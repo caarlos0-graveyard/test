@@ -26,7 +26,7 @@ winget:
     repository:
       owner: caarlos0-graveyard
       name: winget-pkgs
-      branch: "test-{{.Version}}"
+      branch: "test-update"
       pull_request:
         enabled: true
         base:
