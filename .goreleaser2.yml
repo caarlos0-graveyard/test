@@ -24,14 +24,14 @@ winget:
     short_description: "my test app"
     license: mit
     repository:
-      owner: caarlos0
-      name: winget-pkgs
-      branch: "test-update"
+      owner: caarlos0-graveyard
+      name: fake-winpkgs-1
+      branch: "test-{{.Version}}"
       pull_request:
         enabled: true
         base:
-          owner: microsoft
-          name: winget-pkgs
+          owner: caarlos0-graveyard
+          name: fake-winpkgs
           branch: master
 
 # nix:
