@@ -25,12 +25,12 @@ winget:
     license: mit
     repository:
       owner: caarlos0-graveyard
-      name: fake-winpkgs-1
+      name: fake-winpkgs
       branch: "test-{{.Version}}"
       pull_request:
         enabled: true
         base:
-          owner: caarlos0-graveyard
+          owner: caarlos0
           name: fake-winpkgs
           branch: main
 
