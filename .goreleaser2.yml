@@ -30,8 +30,8 @@ winget:
       pull_request:
         enabled: true
         base:
-          owner: caarlos0-graveyard
-          name: winget-pkgs-1
+          owner: caarlos0
+          name: winget-pkgs
           branch: master
 
 # nix:
