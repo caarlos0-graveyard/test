@@ -25,7 +25,7 @@ winget:
     license: mit
     repository:
       owner: caarlos0-graveyard
-      name: winget-pkgs-2
+      name: winget-pkgs
       branch: "test-{{.Version}}"
       pull_request:
         enabled: true
