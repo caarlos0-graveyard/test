@@ -87,7 +87,8 @@ winget:
 #     - linux/amd64
 #     - linux/arm64
 #     tags: [latest, '{{.Tag}}']
-# archives:
+archives:
+  - format: zip
 #   - id: moises
 #     name_template: 'moises_{{.Os}}_{{.Arch}}'
 #     builds:
