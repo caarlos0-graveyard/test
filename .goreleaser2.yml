@@ -32,7 +32,7 @@ winget:
         base:
           owner: caarlos0-graveyard
           name: fake-winpkgs
-          branch: master
+          branch: main
 
 # nix:
 #   - name: test
