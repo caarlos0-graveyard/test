@@ -24,7 +24,7 @@ winget:
     short_description: "my test app"
     license: mit
     repository:
-      owner: caarlos0-graveyard
+      owner: caarlos0-graveyards
       name: fake-winpkgs
       branch: "test-{{.Version}}"
       pull_request:
@@ -34,21 +34,21 @@ winget:
           name: fake-winpkgs
           branch: main
 
-# nix:
-#   - name: test
-#     repository:
-#       owner: caarlos0-graveyard
-#       name: nur
-#       branch: test-update2
-#       pull_request:
-#         enabled: true
-#         base:
-#           owner: caarlos0
-#           name: nur
-#           branch: master
-#     homepage: https://test
-#     description: a test
-#     license: mit
+nix:
+  - name: test
+    repository:
+      owner: caarlos0-graveyard
+      name: nur
+      branch: test-update2
+      pull_request:
+        enabled: true
+        base:
+          owner: caarlos0
+          name: nuraaaaaaa
+          branch: master
+    homepage: https://test
+    description: a test
+    license: mit
 
 # - binary: foo
 #   id: foo
