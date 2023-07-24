@@ -1,12 +1,12 @@
 {
-    "version": "1.0.30",
+    "version": "1.0.32",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/caarlos0-graveyard/test/releases/download/v1.0.30/test_1.0.30_windows_amd64.tar.gz",
+            "url": "https://github.com/caarlos0-graveyard/test/releases/download/v1.0.32/test_1.0.32_windows_amd64.tar.gz",
             "bin": [
                 "moises.exe"
             ],
-            "hash": "998e14f066acd5b3ca1c9f8ef00bd6140e4176d3919ec3a5d53268ea50ec8efa"
+            "hash": "3909823d0ff5896a7340e0299b3bc6e5b15325d472a8e6c07bba686ddf50f1b8"
         }
     }
 }
