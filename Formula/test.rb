@@ -5,11 +5,11 @@
 class Test < Formula
   desc ""
   homepage ""
-  version "1.0.32"
+  version "1.0.33"
 
   on_macos do
-    url "https://github.com/caarlos0-graveyard/test/releases/download/v1.0.32/test_1.0.32_darwin_amd64.tar.gz"
-    sha256 "13b68d72b645101379df0c3673e0ae46c028891e9a4940cf68d392b869963068"
+    url "https://github.com/caarlos0-graveyard/test/releases/download/v1.0.33/test_1.0.33_darwin_amd64.tar.gz"
+    sha256 "4131af8e44bee76a74261ca4aca85752c0504102bddc0a5c59c9582d25b0558b"
 
     def install
       bin.install "moises"
@@ -28,8 +28,8 @@ class Test < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.0.32/test_1.0.32_linux_amd64.tar.gz"
-      sha256 "0236ca4ad027c2ff35043b242a0c75e8c7339f5ec27e0df1b53967903c0e160d"
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.0.33/test_1.0.33_linux_amd64.tar.gz"
+      sha256 "002742aced75d9fcccf8cafa943525f14dca6337f6fce7ee65af7aae1670aac0"
 
       def install
         bin.install "moises"
