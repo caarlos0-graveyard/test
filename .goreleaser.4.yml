@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
 # This is an example goreleaser.yaml file with some sane defaults.
 # Make sure to check the documentation at http://goreleaser.com
 builds:
@@ -7,35 +8,16 @@ builds:
       - CGO_ENABLED=0
     main: ./main.go
     goos:
-      - darwin
-      - linux
       - windows
-    goarch:
-      - amd64
-checksum:
-  name_template: "checksums.txt"
-snapshot:
-  name_template: "{{ .Tag }}-next"
-changelog:
-  sort: asc
-  filters:
-    exclude:
-      - "^docs:"
-      - "^test:"
-brews:
-  - tap:
-      owner: caarlos0
-      name: test
-    folder: Formula
-    caveats: "Test formula, dont use it. It doesnt do anything"
-  - tap:
-      owner: caarlos0
-      name: test
-    folder: Formula
-    caveats: "Test formula, dont use it. It doesnt do anything, versioned"
-    name: "{{.ProjectName}}@{{.Tag}}"
-scoop:
-  name: foobar
-  bucket:
-    owner: caarlos0
-    name: test
+
+chocolateys:
+  - name: foo
+    owners: carlos
+    title: lalal
+    authors: carlos
+    api_key: fake
+    copyright: mit
+    license_url: https://foo.com/mit
+    summary: aaaa
+    description: aaaaaa
+    project_url: https://foo.com

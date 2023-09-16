@@ -1,25 +1,9 @@
 name: release
 
-# on:
-#   push:
-#     tags: ['v*']
-#
-# jobs:
-#   goreleaser:
-#     uses: charmbracelet/meta/.github/workflows/goreleaser.yml@main
-#     secrets:
-#       docker_username: caarlos0
-#       docker_token: ${{ secrets.DOCKER_PASSWORD }}
-#       gh_pat: ${{ secrets.GH_PAT }}
-#       goreleaser_key: ${{ secrets.GORELEASER_KEY }}
-#
-
 on:
-  workflow_dispatch:
-    inputs:
-      tag:
-        description: 'New tag name'
-        required: true
+  push:
+    tags:
+      - v.*
 
 permissions:
   contents: write
@@ -28,43 +12,17 @@ permissions:
 
 jobs:
   goreleaser:
-    runs-on: ubuntu-latest
-    # env:
-    #   DOCKER_CLI_EXPERIMENTAL: "enabled"
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - run: git tag ${{ github.event.inputs.tag }}
-      # - uses: docker/setup-qemu-action@v1
-      # - uses: docker/setup-buildx-action@v1
-      - uses: actions/setup-go@v3
+      - uses: actions/setup-go@v4
         with:
-          go-version: '1.19'
-          # cache: true
-      # - name: dockerhub-login
-      #   uses: docker/login-action@49ed152c8eca782a232dede0303416e8f356c37b # v1
-      #   with:
-      #     username: ${{ secrets.DOCKER_USERNAME }}
-      #     password: ${{ secrets.DOCKER_PASSWORD }}
-      # - name: ghcr-login
-      #   uses: docker/login-action@49ed152c8eca782a232dede0303416e8f356c37b # v1
-      #   with:
-      #     registry: ghcr.io
-      #     username: ${{ github.repository_owner }}
-      #     password: ${{ secrets.GITHUB_TOKEN }}
-      # - run: |
-      #     curl -sfL https://goreleaser.com/static/run >/tmp/goreleaser
-      #     chmod +x /tmp/goreleaser
-      # - run: /tmp/goreleaser release --rm-dist
-      #   env:
-          # VERSION: nightly
-          # DISTRIBUTION: pro
-          #
-      - uses: goreleaser/goreleaser-action@v3
+          go-version: "stable"
+      - uses: goreleaser/goreleaser-action@v5
         with:
-          distribution: goreleaser-pro
           version: latest
+          args: release --clean --verbose -f .goreleaser.4.yml
+        env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-          GORELEASER_KEY: ${{ secrets.GORELEASER_KEY }}
-
