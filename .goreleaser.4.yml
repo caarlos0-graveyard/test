@@ -9,15 +9,18 @@ builds:
     main: ./main.go
     goos:
       - windows
+#
+# chocolateys:
+#   - name: foo
+#     owners: carlos
+#     title: lalal
+#     authors: carlos
+#     api_key: fake
+#     copyright: mit
+#     license_url: https://foo.com/mit
+#     summary: aaaa
+#     description: aaaaaa
+#     project_url: https://foo.com
 
-chocolateys:
-  - name: foo
-    owners: carlos
-    title: lalal
-    authors: carlos
-    api_key: fake
-    copyright: mit
-    license_url: https://foo.com/mit
-    summary: aaaa
-    description: aaaaaa
-    project_url: https://foo.com
+sboms:
+  - artifacts: archive

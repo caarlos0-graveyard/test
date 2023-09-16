@@ -20,6 +20,8 @@ jobs:
       - uses: actions/setup-go@v4
         with:
           go-version: "stable"
+      - run: "choco install syft -y"
+        shell: powershell
       - run: "./goreleaser.exe release --clean --verbose -f .goreleaser.4.yml --skip-validate"
         shell: powershell
         env:
