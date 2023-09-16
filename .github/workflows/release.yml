@@ -20,7 +20,7 @@ jobs:
       - uses: actions/setup-go@v4
         with:
           go-version: "stable"
-      - run: "./goreleaser.exe release --clean --verbose -f .goreleaser.4.yml"
+      - run: "./goreleaser.exe release --clean --verbose -f .goreleaser.4.yml --skip-validate"
         shell: powershell
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
