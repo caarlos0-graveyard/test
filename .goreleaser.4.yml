@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+# yaml-language-server: $schema=https://goreleaser.com/static/schema-pro.json
 # This is an example goreleaser.yaml file with some sane defaults.
 # Make sure to check the documentation at http://goreleaser.com
 builds:
@@ -9,6 +9,8 @@ builds:
     main: ./main.go
     goos:
       - windows
+    goarch:
+      - adm64
 #
 # chocolateys:
 #   - name: foo
@@ -24,3 +26,13 @@ builds:
 
 sboms:
   - artifacts: archive
+
+brews:
+  - repository:
+      name: test
+      owner: caarlos0-graveyard
+      pull_request:
+        base: master
+        enabled: true
+        check_boxes: true
+      branch: foo
