@@ -3,29 +3,35 @@
 github_urls:
   skip_tls_verify: true
 builds:
-- id: build1
-  binary: foo
-  env:
-  - CGO_ENABLED=0
-  main: ./main.go
-  goos:
-  - darwin
-  goarch:
-  - amd64
-- id: build2
-  binary: foo
-  env:
-  - CGO_ENABLED=0
-  main: ./foo/main.go
-  goos:
-  - linux
-  goarch:
-  - amd64
+  - id: build1
+    binary: foo
+    env:
+      - CGO_ENABLED=0
+    main: ./main.go
+    goos:
+      - darwin
+    goarch:
+      - amd64
+  - id: build2
+    binary: foo
+    env:
+      - CGO_ENABLED=0
+    main: ./foo/main.go
+    goos:
+      - linux
+    goarch:
+      - amd64
 dockers:
-- image_templates:
-  - caarlos0/foo
-  binaries:
-  - foo
-  builds:
-  - build2
-  dockerfile: Dockerfile.foo
+  - image_templates:
+      - caarlos0/foo
+    ids:
+      - build2
+    dockerfile: Dockerfile.foo
+
+dockerhub:
+  - username: caarlos0
+    images: [caarlos0/foo]
+    description: a test
+    full_description:
+      from_file:
+        path: ./README.md
