@@ -10,7 +10,7 @@ builds:
     goos:
       - windows
     goarch:
-      - adm64
+      - amd64
 #
 # chocolateys:
 #   - name: foo
