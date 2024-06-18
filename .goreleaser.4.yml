@@ -1,3 +1,4 @@
+version: 2
 # yaml-language-server: $schema=https://goreleaser.com/static/schema-pro.json
 # This is an example goreleaser.yaml file with some sane defaults.
 # Make sure to check the documentation at http://goreleaser.com
@@ -34,7 +35,7 @@ brews:
       pull_request:
         base: master
         enabled: true
-        check_boxes: true
+        # check_boxes: true
       branch: foo
 
 release:
