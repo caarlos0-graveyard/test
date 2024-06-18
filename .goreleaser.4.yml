@@ -12,31 +12,6 @@ builds:
       - windows
     goarch:
       - amd64
-#
-# chocolateys:
-#   - name: foo
-#     owners: carlos
-#     title: lalal
-#     authors: carlos
-#     api_key: fake
-#     copyright: mit
-#     license_url: https://foo.com/mit
-#     summary: aaaa
-#     description: aaaaaa
-#     project_url: https://foo.com
-#
-# sboms:
-#   - artifacts: archive
-# #
-brews:
-  - repository:
-      name: test
-      owner: caarlos0-graveyard
-      pull_request:
-        base: master
-        enabled: true
-        # check_boxes: true
-      branch: foo
 
 release:
   name_template: "v{{ .Version }}"
