@@ -24,7 +24,7 @@ jobs:
         id: goreleaser
         with:
           version: latest
-          args: release --clean
+          args: release --clean --config .goreleaser.4.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # parse artifacts to the format required for image attestation
