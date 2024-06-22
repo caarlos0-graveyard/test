@@ -1,11 +1,12 @@
 # This is an example .goreleaser.yml file with some sensible defaults.
 # Make sure to check the documentation at https://goreleaser.com
+version: 2
 before:
   hooks:
     # You may remove this if you don't use go modules.
     - go mod tidy
 builds:
-  - env: [ "CGO_ENABLED=0" ]
+  - env: ["CGO_ENABLED=0"]
     binary: foo
     targets: [go_first_class]
 
@@ -29,19 +30,18 @@ archives:
 #       - caarlos0/moises:{{.Version}}-amd64
 
 release:
-  disable: true
+  # disable: true
   # draft: false
   # replace_existing_draft: true
   # name_template: '{{.Version}}'
   # target_commitish: 'master'
-  # github:
-  #   owner: caarlos0-graveyard
-  #   name: test2
+  github:
+    owner: caarlos0-graveyard
+    name: test2
 
 docker_signs:
-- artifacts: manifests
-  stdin: '{{ .Env.COSIGN_PWD }}'
-
+  - artifacts: manifests
+    stdin: "{{ .Env.COSIGN_PWD }}"
 # nightly:
 #   publish_release: true
 #   keep_single_release: true
@@ -51,7 +51,7 @@ docker_signs:
 # monorepo:
 #   tag_prefix: v
 #
-
-kos:
-  - repository: ghcr.io/caarlos0/test-ko:{{ .Version }}
-    preserve_import_paths: false
+#
+# kos:
+#   - repository: ghcr.io/caarlos0/test-ko:{{ .Version }}
+#     preserve_import_paths: false
