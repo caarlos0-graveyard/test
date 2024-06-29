@@ -44,6 +44,10 @@ archives:
 
 release:
   # disable: true
+  prerelease: "false"
+  draft: true
+  replace_existing_draft: true
+  make_latest: false
   # draft: false
   # replace_existing_draft: true
   # name_template: '{{.Version}}'
