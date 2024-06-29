@@ -44,7 +44,7 @@ archives:
 
 release:
   # disable: true
-  prerelease: "false"
+  prerelease: auto
   draft: true
   replace_existing_draft: true
   make_latest: false
