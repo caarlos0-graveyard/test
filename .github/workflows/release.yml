@@ -73,4 +73,6 @@ jobs:
           title: "nightly"
           description: "build finished with status {{STATUS}}"
           discord-webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          username: GoReleaser
+          avatar-url: https://avatars.githubusercontent.com/u/24697112?v=4
           include-details: false
