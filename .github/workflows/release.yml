@@ -28,6 +28,20 @@ jobs:
           args: release --clean --config .goreleaser.4.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Notify success
+        uses: rjstone/discord-webhook-notify@v1
+        if: success()
+        with:
+          severity: info
+          details: New nightly build available!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+      - name: Notify failure
+        uses: rjstone/discord-webhook-notify@v1
+        if: failure()
+        with:
+          severity: error
+          details: Nightly failed
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       # parse artifacts to the format required for image attestation
       # - run: |
       #     echo "digest=$(echo "$ARTIFACTS" | jq -r '.[]|select(.type=="Docker Manifest")|select(.name|test(":v"))|.extra.Digest')" >> "$GITHUB_OUTPUT"
