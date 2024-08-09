@@ -15,11 +15,7 @@ builds:
 
 release:
   name_template: "v{{ .Version }}"
-  mode: append
-  # replace_existing_artifacts: true
-  # skip_upload: true
-  discussion_category_name: General
-  footer: |
-    ## Foo
-    ### Bar
-    - zaz
+  prerelease: "false"
+  draft: true
+  replace_existing_draft: true
+  make_latest: false
