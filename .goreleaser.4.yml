@@ -15,7 +15,7 @@ builds:
 
 release:
   name_template: "v{{ .Version }}"
-  prerelease: "false"
+  prerelease: auto
   draft: true
   replace_existing_draft: true
   make_latest: false
