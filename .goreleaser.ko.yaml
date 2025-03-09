@@ -1,0 +1,32 @@
+# .goreleaser.yml
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - env: ["CGO_ENABLED=1"]
+    binary: test
+    goos:
+      - darwin
+      - linux
+    goarch:
+      - amd64
+      - arm64
+
+brews:
+  - repository:
+      name: foo
+    dependencies:
+      - name: xclip
+        os: linux
+#
+# kos:
+#   - repository: ghcr.io/caarlos0/test-ko
+#     tags:
+#       - "{{.Version}}"
+#       - latest
+#     bare: true
+#     preserve_import_paths: false
+#     platforms:
+#       - linux/amd64
+#       - linux/arm64

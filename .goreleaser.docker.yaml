@@ -1,8 +1,29 @@
-project_name: foo
+# yaml-language-server: $schema=https://goreleaser.com/static/schema-pro.json
+version: 2
+project_name: test
 
 dockers:
-- goos: linux
-  goarch: amd64
-  image_templates:
-  - "caarlos0/foo:true"
-  dockerfile: true.Dockerfile
+  - goos: linux
+    goarch: amd64
+    image_templates:
+      - "caarlos0/foo:true"
+    dockerfile: true.Dockerfile
+
+release:
+  disable: true
+
+builds:
+  - main: ./bar/
+
+nfpms:
+  - formats:
+      - deb
+      - apk
+      - rpm
+
+furies:
+  - account: caarlos0
+    formats:
+      - deb
+      - apk
+      - rpm

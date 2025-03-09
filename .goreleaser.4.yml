@@ -13,6 +13,10 @@ builds:
     goarch:
       - amd64
 
+chocolateys:
+  - use: archive
+    authors: "someone"
+
 release:
   name_template: "v{{ .Version }}"
   prerelease: auto
