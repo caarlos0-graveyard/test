@@ -14,7 +14,7 @@ builds:
 
 npms:
   - description: "hi"
-    name: "goreleaser-test"
+    name: "@caarlos0/goreleaser-test"
     license: MIT
 
 # notarize:
