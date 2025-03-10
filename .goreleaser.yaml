@@ -15,6 +15,7 @@ builds:
 npms:
   - description: "hi"
     name: "@caarlos0/goreleaser-test"
+    keywords: [goreleaser, release, automation, devops]
     license: MIT
 
 # notarize:
@@ -47,19 +48,19 @@ archives:
 #     image_templates:
 #       - caarlos0/moises:{{.Version}}-amd64
 
-release:
-  # disable: true
-  prerelease: auto
-  draft: true
-  replace_existing_draft: true
-  make_latest: false
-  # draft: false
-  # replace_existing_draft: true
-  # name_template: '{{.Version}}'
-  # target_commitish: 'master'
-  github:
-    owner: caarlos0-graveyard
-    name: test2
+# release:
+#   # disable: true
+#   prerelease: auto
+#   draft: true
+#   replace_existing_draft: true
+#   make_latest: false
+#   # draft: false
+#   # replace_existing_draft: true
+#   # name_template: '{{.Version}}'
+#   # target_commitish: 'master'
+#   github:
+#     owner: caarlos0-graveyard
+#     name: test
 # docker_signs:
 #   - artifacts: manifests
 #     stdin: "{{ .Env.COSIGN_PWD }}"
