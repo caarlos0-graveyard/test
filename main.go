@@ -1,7 +1,5 @@
 package main
 
-var snap = "off"
-
 func main() {
-	println("snap: " + snap)
+	println("hello npm from goreleaser...")
 }

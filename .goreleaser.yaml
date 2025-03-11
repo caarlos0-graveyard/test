@@ -6,18 +6,32 @@ version: 2
 #     # You may remove this if you don't use go modules.
 #     - go mod tidy
 builds:
-  - env: ["CGO_ENABLED=0"]
+  - id: build1
+    env: ["CGO_ENABLED=0"]
     goos: [linux, windows, darwin]
     goarch: [amd64, arm64]
-    binary: myapp
-    # targets: [go_first_class]
+    binary: bin1
+  # - id: build2
+  #   env: ["CGO_ENABLED=0"]
+  #   goos: [linux, windows, darwin]
+  #   goarch: [amd64, arm64]
+  #   binary: bin2
+  #   main: ./bar/
+
+archives:
+  - name_template: >-
+      {{ .ProjectName }}_{{ .Version }}_
+      {{- title .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+    formats: [binary]
 
 npms:
   - description: "hi"
     name: "@caarlos0/goreleaser-test"
     keywords: [goreleaser, release, automation, devops]
     license: MIT
-
 # notarize:
 #   macos:
 #     - enabled: '{{ isEnvSet "MACOS_SIGN_P12" }}'
@@ -29,14 +43,6 @@ npms:
 #         key_id: "{{.Env.MACOS_NOTARY_KEY_ID}}"
 #         key: "{{.Env.MACOS_NOTARY_KEY}}"
 #
-archives:
-  - name_template: >-
-      {{ .ProjectName }}_{{ .Version }}_
-      {{- title .Os }}_
-      {{- if eq .Arch "amd64" }}x86_64
-      {{- else if eq .Arch "386" }}i386
-      {{- else }}{{ .Arch }}{{ end }}
-
 # dockers:
 # - image_templates: ["caarlos0/moises:{{.Version}}-amd64"]
 #   use: buildx
