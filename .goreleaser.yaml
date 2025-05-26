@@ -9,28 +9,45 @@ builds:
   - env: ["CGO_ENABLED=0"]
     goos: [linux, windows, darwin]
     goarch: [amd64, arm64]
-    binary: myapp
+    binary: foo
     # targets: [go_first_class]
 
-notarize:
-  macos:
-    - enabled: '{{ isEnvSet "MACOS_SIGN_P12" }}'
-      sign:
-        certificate: "{{.Env.MACOS_SIGN_P12}}"
-        password: "{{.Env.MACOS_SIGN_PASSWORD}}"
-      notarize:
-        issuer_id: "{{.Env.MACOS_NOTARY_ISSUER_ID}}"
-        key_id: "{{.Env.MACOS_NOTARY_KEY_ID}}"
-        key: "{{.Env.MACOS_NOTARY_KEY}}"
-
-archives:
-  - name_template: >-
-      {{ .ProjectName }}_{{ .Version }}_
-      {{- title .Os }}_
-      {{- if eq .Arch "amd64" }}x86_64
-      {{- else if eq .Arch "386" }}i386
-      {{- else }}{{ .Arch }}{{ end }}
-
+dockers_v2:
+  - images:
+      - "ghcr.io/caarlos0/test-dockers-v2"
+    tags:
+      - "v{{ .Version }}"
+      - "{{ if .IsNightly }}nightly{{ end }}"
+      - "{{ if not .IsNightly }}latest{{ end }}"
+    platforms:
+      - linux/amd64
+      - linux/arm64
+    labels:
+      "org.opencontainers.image.description": "Some description"
+      "org.opencontainers.image.created": "{{.Date}}"
+      "org.opencontainers.image.name": "{{.ProjectName}}"
+      "org.opencontainers.image.revision": "{{.FullCommit}}"
+      "org.opencontainers.image.version": "{{.Version}}"
+      "org.opencontainers.image.source": "{{.GitURL}}"
+# # notarize:
+# #   macos:
+# #     - enabled: '{{ isEnvSet "MACOS_SIGN_P12" }}'
+# #       sign:
+# #         certificate: "{{.Env.MACOS_SIGN_P12}}"
+# #         password: "{{.Env.MACOS_SIGN_PASSWORD}}"
+# #       notarize:
+# #         issuer_id: "{{.Env.MACOS_NOTARY_ISSUER_ID}}"
+# #         key_id: "{{.Env.MACOS_NOTARY_KEY_ID}}"
+# #         key: "{{.Env.MACOS_NOTARY_KEY}}"
+# #
+# archives:
+#   - name_template: >-
+#       {{ .ProjectName }}_{{ .Version }}_
+#       {{- title .Os }}_
+#       {{- if eq .Arch "amd64" }}x86_64
+#       {{- else if eq .Arch "386" }}i386
+#       {{- else }}{{ .Arch }}{{ end }}
+#
 # dockers:
 # - image_templates: ["caarlos0/moises:{{.Version}}-amd64"]
 #   use: buildx
@@ -42,23 +59,23 @@ archives:
 #     image_templates:
 #       - caarlos0/moises:{{.Version}}-amd64
 
-release:
-  # disable: true
-  prerelease: auto
-  draft: true
-  replace_existing_draft: true
-  make_latest: false
-  # draft: false
-  # replace_existing_draft: true
-  # name_template: '{{.Version}}'
-  # target_commitish: 'master'
-  github:
-    owner: caarlos0-graveyard
-    name: test2
-# docker_signs:
-#   - artifacts: manifests
-#     stdin: "{{ .Env.COSIGN_PWD }}"
-
+# release:
+#   # disable: true
+#   prerelease: auto
+#   draft: true
+#   replace_existing_draft: true
+#   make_latest: false
+#   # draft: false
+#   # replace_existing_draft: true
+#   # name_template: '{{.Version}}'
+#   # target_commitish: 'master'
+#   github:
+#     owner: caarlos0-graveyard
+#     name: test2
+# # docker_signs:
+# #   - artifacts: manifests
+# #     stdin: "{{ .Env.COSIGN_PWD }}"
+#
 # nightly:
 #   publish_release: true
 #   keep_single_release: true

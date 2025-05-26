@@ -1,3 +1,4 @@
 FROM alpine
-COPY foo /usr/bin/foo
+ARG TARGETPLATFORM
+COPY $TARGETPLATFORM/foo /usr/bin/foo
 ENTRYPOINT ["/usr/bin/foo"]
