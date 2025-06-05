@@ -2,7 +2,7 @@
 cask "test" do
   desc ""
   homepage ""
-  version "1.14.23"
+  version "1.14.24"
 
   livecheck do
     skip "Auto-generated on release."
@@ -12,23 +12,23 @@ cask "test" do
 
   on_macos do
     on_intel do
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.23/test_1.14.23_darwin_amd64.tar.gz"
-      sha256 "775148baa10acdebd55ef1f055e5924b7347ee8e775c23d22e8af94281836c2b"
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.24/test_1.14.24_darwin_amd64.tar.gz"
+      sha256 "4109dab578e1a53ac736c5f35408414012106c8f27010b86105daf3eb2615f5c"
     end
     on_arm do
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.23/test_1.14.23_darwin_arm64.tar.gz"
-      sha256 "689d0f6115d25d6bf62bf43d2322fde352693eca43815e914179f96f71a15b35"
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.24/test_1.14.24_darwin_arm64.tar.gz"
+      sha256 "1bfc466747547ce2970b5ef055cb0cf2bfded1273b9f51051cb26672d4733e61"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.23/test_1.14.23_linux_amd64.tar.gz"
-      sha256 "42778b3caad48b6cf1d2037cb5bb27391a461b3eb32f6424f19ff7d14aa9e08a"
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.24/test_1.14.24_linux_amd64.tar.gz"
+      sha256 "28f3898a82a39d48421f9f60d8403c9199eea583a94bf6a00d55e2a1bb55a342"
     end
     on_arm do
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.23/test_1.14.23_linux_arm64.tar.gz"
-      sha256 "7c89170bec5ddc5b2489d2c281f6f83fbca7e5ea218e0127bc4782f176808ba1"
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.24/test_1.14.24_linux_arm64.tar.gz"
+      sha256 "05c7de22fe2b5f7c767b7e047dd7194a874d9c184104363e3de4313b13e0991e"
     end
   end
 
