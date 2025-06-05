@@ -13,10 +13,12 @@ builds:
     # targets: [go_first_class]
 
 homebrew_casks:
-  - tap:
+  - repository:
       owner: caarlos0
       name: test
     caveats: "Test formula, dont use it. It doesnt do anything"
+    conflicts:
+      - formula: test
 # dockers_v2:
 #   - images:
 #       - "ghcr.io/caarlos0/test-dockers-v2"
