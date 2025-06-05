@@ -20,6 +20,11 @@ homebrew_casks:
     binary: foo
     conflicts:
       - formula: test
+    hooks:
+      post:
+        install: |
+          system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{appdir}/foo"]
+
 # dockers_v2:
 #   - images:
 #       - "ghcr.io/caarlos0/test-dockers-v2"
