@@ -2,7 +2,7 @@
 cask "test" do
   desc ""
   homepage ""
-  version "1.14.21"
+  version "1.14.22"
 
   livecheck do
     skip "Auto-generated on release."
@@ -12,27 +12,31 @@ cask "test" do
 
   on_macos do
     on_intel do
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.21/test_1.14.21_darwin_amd64.tar.gz"
-      sha256 "ce3c77a81587c0503c14e5c7ef187f2344358e2e599a3ede9e533cd83509bbf4"
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.22/test_1.14.22_darwin_amd64.tar.gz"
+      sha256 "f1c93ec7568c5028622eae72c20f680cac99fe4396bd8cfa4ec0aa1484cb36d2"
     end
     on_arm do
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.21/test_1.14.21_darwin_arm64.tar.gz"
-      sha256 "988271141b8295e4fee248eaa9b5ef855239712cd1970ca53d018bd08f4d50b6"
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.22/test_1.14.22_darwin_arm64.tar.gz"
+      sha256 "bc0bf988b3cd6862a7bdde0e56e72bce23782f9885bbefe9776f72e8e4d83b22"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.21/test_1.14.21_linux_amd64.tar.gz"
-      sha256 "a45ebc2a6d12e7e1a11faca3529458d9d00b30a2a9800bd60be479e2cdac2ab0"
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.22/test_1.14.22_linux_amd64.tar.gz"
+      sha256 "792152810e0a46f8dfa543f23a2e13b81d0a95cb6ba55ccbbd3022d537d79040"
     end
     on_arm do
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.21/test_1.14.21_linux_arm64.tar.gz"
-      sha256 "9b0ce3a79f472f20f6907261d7111c3a186a37fe1702f25655ccb456026301f3"
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.22/test_1.14.22_linux_arm64.tar.gz"
+      sha256 "a3481d96a46f86c6f40806a0190cc667419ae061d074b40ea16b984d54834347"
     end
   end
 
   conflicts_with formula: "test"
+
+  postflight do
+    system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{appdir}/foo"]
+  end
 
   caveats do
     "Test formula, dont use it. It doesnt do anything"
