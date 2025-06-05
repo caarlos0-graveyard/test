@@ -2,7 +2,7 @@
 cask "test" do
   desc ""
   homepage ""
-  version "1.14.19"
+  version "1.14.20"
 
   livecheck do
     skip "Auto-generated on release."
@@ -12,25 +12,27 @@ cask "test" do
 
   on_macos do
     on_intel do
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.19/test_1.14.19_darwin_amd64.tar.gz"
-      sha256 "672ad83877d32eb61d5b6abbed2617a3430047354f2ff7f568f88bdc25b80535"
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.20/test_1.14.20_darwin_amd64.tar.gz"
+      sha256 "3780840cb8ee7f07f9a0c3324ad37a7ebfa3d12be7e40e17ad9e8c7105c71f4c"
     end
     on_arm do
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.19/test_1.14.19_darwin_arm64.tar.gz"
-      sha256 "4d53f4b46fcd120f31eecb6d74aec1eaf2a8986dd110352c9186ab2b35ffb561"
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.20/test_1.14.20_darwin_arm64.tar.gz"
+      sha256 "34397e233523eb5407d7977839fb7972c6eed0096acc2f4a1aedb5e4edeac356"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.19/test_1.14.19_linux_amd64.tar.gz"
-      sha256 "ea938a364d2575d3f04b227d8065f61e417c6852201f0974286b54ee1b9b7781"
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.20/test_1.14.20_linux_amd64.tar.gz"
+      sha256 "4a8282cd92b4e87faf056d1c4d212c1971e31cbe772eed785d8066766c12db6c"
     end
     on_arm do
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.19/test_1.14.19_linux_arm64.tar.gz"
-      sha256 "a3eeb1b164c1e43f05621865f82006f65a9f3876973b543aeef244bacd67cb31"
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.20/test_1.14.20_linux_arm64.tar.gz"
+      sha256 "e7b4e60068608ccd69bb5247092ab573f44615f85bdad2e326bd636c9765c237"
     end
   end
+
+  conflicts_with formula: "test"
 
   caveats do
     "Test formula, dont use it. It doesnt do anything"
