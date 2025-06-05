@@ -1,5 +1,5 @@
+version: 2
 project_name: example
-
 
 builds:
   - id: example
@@ -14,40 +14,36 @@ builds:
       - amd64
       - arm64
 
-
 monorepo:
   tag_prefix: example-
   dir: .
 
 release:
-  name_template: 'v{{ .Version }}'
-  tag: '{{ .Tag }}'
+  name_template: "v{{ .Version }}"
+  tag: "{{ .Tag }}"
   github:
     owner: caarlos0-graveyard
     name: test2
 
-
 checksum:
-  name_template: 'checksums.txt'
+  name_template: "checksums.txt"
 
 archives:
   - id: example-archive
-    name_template: 'example-v{{ .Version }}-{{ .Os }}-{{ .Arch }}'
+    name_template: "example-v{{ .Version }}-{{ .Os }}-{{ .Arch }}"
     builds:
       - example
 
 dockers:
-- image_templates:
-  - caarlos0/example-monorepo
-  dockerfile: Dockerfile.example
+  - image_templates:
+      - caarlos0/example-monorepo
+    dockerfile: Dockerfile.example
 
-
-brews:
-- tap:
-    owner: caarlos0
-    name: test
-  folder: Formula
-  caveats: "Test formula, dont use it. It doesnt do anything"
+homebrew_casks:
+  - tap:
+      owner: caarlos0
+      name: test
+    caveats: "Test formula, dont use it. It doesnt do anything"
 
 announce:
   twitter:

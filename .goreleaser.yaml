@@ -12,23 +12,28 @@ builds:
     binary: foo
     # targets: [go_first_class]
 
-dockers_v2:
-  - images:
-      - "ghcr.io/caarlos0/test-dockers-v2"
-    tags:
-      - "v{{ .Version }}"
-      - "{{ if .IsNightly }}nightly{{ end }}"
-      - "{{ if not .IsNightly }}latest{{ end }}"
-    platforms:
-      - linux/amd64
-      - linux/arm64
-    labels:
-      "org.opencontainers.image.description": "Some description"
-      "org.opencontainers.image.created": "{{.Date}}"
-      "org.opencontainers.image.name": "{{.ProjectName}}"
-      "org.opencontainers.image.revision": "{{.FullCommit}}"
-      "org.opencontainers.image.version": "{{.Version}}"
-      "org.opencontainers.image.source": "{{.GitURL}}"
+homebrew_casks:
+  - tap:
+      owner: caarlos0
+      name: test
+    caveats: "Test formula, dont use it. It doesnt do anything"
+# dockers_v2:
+#   - images:
+#       - "ghcr.io/caarlos0/test-dockers-v2"
+#     tags:
+#       - "v{{ .Version }}"
+#       - "{{ if .IsNightly }}nightly{{ end }}"
+#       - "{{ if not .IsNightly }}latest{{ end }}"
+#     platforms:
+#       - linux/amd64
+#       - linux/arm64
+#     labels:
+#       "org.opencontainers.image.description": "Some description"
+#       "org.opencontainers.image.created": "{{.Date}}"
+#       "org.opencontainers.image.name": "{{.ProjectName}}"
+#       "org.opencontainers.image.revision": "{{.FullCommit}}"
+#       "org.opencontainers.image.version": "{{.Version}}"
+#       "org.opencontainers.image.source": "{{.GitURL}}"
 # # notarize:
 # #   macos:
 # #     - enabled: '{{ isEnvSet "MACOS_SIGN_P12" }}'
