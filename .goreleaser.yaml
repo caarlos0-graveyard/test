@@ -17,6 +17,8 @@ homebrew_casks:
       owner: caarlos0
       name: test
     caveats: "Test formula, dont use it. It doesnt do anything"
+    alternative_names:
+      - test@{{ .Major }}
     binary: foo
     conflicts:
       - formula: test
