@@ -17,6 +17,7 @@ homebrew_casks:
       owner: caarlos0
       name: test
     caveats: "Test formula, dont use it. It doesnt do anything"
+    binary: foo
     conflicts:
       - formula: test
 # dockers_v2:
