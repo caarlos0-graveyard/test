@@ -2,7 +2,7 @@
 cask "test" do
   desc ""
   homepage ""
-  version "1.14.22"
+  version "1.14.23"
 
   livecheck do
     skip "Auto-generated on release."
@@ -12,30 +12,30 @@ cask "test" do
 
   on_macos do
     on_intel do
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.22/test_1.14.22_darwin_amd64.tar.gz"
-      sha256 "f1c93ec7568c5028622eae72c20f680cac99fe4396bd8cfa4ec0aa1484cb36d2"
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.23/test_1.14.23_darwin_amd64.tar.gz"
+      sha256 "775148baa10acdebd55ef1f055e5924b7347ee8e775c23d22e8af94281836c2b"
     end
     on_arm do
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.22/test_1.14.22_darwin_arm64.tar.gz"
-      sha256 "bc0bf988b3cd6862a7bdde0e56e72bce23782f9885bbefe9776f72e8e4d83b22"
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.23/test_1.14.23_darwin_arm64.tar.gz"
+      sha256 "689d0f6115d25d6bf62bf43d2322fde352693eca43815e914179f96f71a15b35"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.22/test_1.14.22_linux_amd64.tar.gz"
-      sha256 "792152810e0a46f8dfa543f23a2e13b81d0a95cb6ba55ccbbd3022d537d79040"
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.23/test_1.14.23_linux_amd64.tar.gz"
+      sha256 "42778b3caad48b6cf1d2037cb5bb27391a461b3eb32f6424f19ff7d14aa9e08a"
     end
     on_arm do
-      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.22/test_1.14.22_linux_arm64.tar.gz"
-      sha256 "a3481d96a46f86c6f40806a0190cc667419ae061d074b40ea16b984d54834347"
+      url "https://github.com/caarlos0-graveyard/test/releases/download/v1.14.23/test_1.14.23_linux_arm64.tar.gz"
+      sha256 "7c89170bec5ddc5b2489d2c281f6f83fbca7e5ea218e0127bc4782f176808ba1"
     end
   end
 
   conflicts_with formula: "test"
 
   postflight do
-    system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{appdir}/foo"]
+    system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/foo"]
   end
 
   caveats do
