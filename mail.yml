@@ -1,0 +1,11 @@
+release:
+  disable: true
+
+artifactories:
+  - name: generic
+    mode: archive
+    exts:
+      - tar.gz
+      - zip
+    target: "http://localhost:8000/{{ .ProjectName }}/{{ .Version }}"
+    checksum: true
