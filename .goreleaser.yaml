@@ -71,6 +71,7 @@ npms:
 # #
 archives:
   - wrap_in_directory: "subdir"
+    formats: [zip]
 # dockers:
 # - image_templates: ["caarlos0/moises:{{.Version}}-amd64"]
 #   use: buildx
