@@ -70,8 +70,7 @@ npms:
 # #         key: "{{.Env.MACOS_NOTARY_KEY}}"
 # #
 archives:
-  - wrap_in_directory: "subdir"
-    formats: [zip]
+  - formats: [zip]
 # dockers:
 # - image_templates: ["caarlos0/moises:{{.Version}}-amd64"]
 #   use: buildx
