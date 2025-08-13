@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://goreleaser.com/static/schema-pro.json
 # This is an example .goreleaser.yml file with some sensible defaults.
 # Make sure to check the documentation at https://goreleaser.com
 version: 2
@@ -13,19 +14,47 @@ builds:
     # targets: [go_first_class]
     #
 
-npms:
-  - name: "@caarlos0/goreleaser-test"
-    repository: https://github.com/goreleaser/goreleaser-pro
-    bugs: https://github.com/goreleaser/goreleaser/issues
-    keywords:
-      - release
-      - golang
-      - go
-      - rust
-      - zig
-      - bun
-      - deno
-      - docker
+env:
+  - CLOUDSMITH_TOKEN=91605f93401854470b4b27f775a77b0f41b568b4
+
+nfpms:
+  - formats:
+      - deb
+      - rpm
+      - apk
+
+cloudsmiths:
+  - organization: goreleaser-test1
+    repository: test1
+    formats:
+      - deb
+      - rpm
+      - apk
+    distributions:
+      deb:
+        - "ubuntu/any-version"
+        - "debian/any-version"
+      rpm:
+        - "el/any-version"
+        - "fedora/any-version"
+      alpine:
+        - "alpine/any-version"
+    component: main
+    republish: true
+
+# npms:
+#   - name: "@caarlos0/goreleaser-test"
+#     repository: https://github.com/goreleaser/goreleaser-pro
+#     bugs: https://github.com/goreleaser/goreleaser/issues
+#     keywords:
+#       - release
+#       - golang
+#       - go
+#       - rust
+#       - zig
+#       - bun
+#       - deno
+#       - docker
 # homebrew_casks:
 #   - repository:
 #       owner: caarlos0
