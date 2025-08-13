@@ -14,9 +14,6 @@ builds:
     # targets: [go_first_class]
     #
 
-env:
-  - CLOUDSMITH_TOKEN=91605f93401854470b4b27f775a77b0f41b568b4
-
 nfpms:
   - formats:
       - deb
