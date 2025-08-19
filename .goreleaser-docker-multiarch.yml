@@ -1,49 +1,55 @@
 # This is an example goreleaser.yaml file with some sane defaults.
 # Make sure to check the documentation at http://goreleaser.com
 builds:
-- env:
-  - CGO_ENABLED=0
-  binary: mybin
-  main: ./main.go
-  goos:
-  - linux
-  goarch:
-  - amd64
-  - arm64
-dockers:
-- image_templates: ["caarlos0/gmarchtest:{{ .Version }}-amd64"]
-  use_buildx: true
-  dockerfile: Dockerfile.multiarch
-  build_flag_templates: ["--platform=linux/amd64"]
-- image_templates: ["caarlos0/gmarchtest:{{ .Version }}-arm64"]
-  use_buildx: true
-  goarch: arm64
-  dockerfile: Dockerfile.multiarch
-  build_flag_templates: ["--platform=linux/arm64"]
-docker_manifests:
-- name_template: caarlos0/gmarchtest:{{ .Version }}
-  image_templates:
-  - caarlos0/gmarchtest:{{ .Version }}-amd64
-  - caarlos0/gmarchtest:{{ .Version }}-arm64
+  - env:
+      - CGO_ENABLED=0
+    binary: mybin
+    main: ./main.go
+    goos:
+      - linux
+    goarch:
+      - amd64
+      - arm64
+
+dockers_v2:
+  - images:
+      - "caarlos0/gmarchtest"
+      - "ghcr.io/caarlos0/test"
+    tags:
+      - "v{{ .Version }}"
+      - "{{ if .IsNightly }}nightly{{ end }}"
+      - "{{ if not .IsNightly }}latest{{ end }}"
+    extra_files:
+      - scripts/entrypoint.sh
+    platforms:
+      - linux/amd64
+      - linux/arm64
+    labels:
+      "org.opencontainers.image.description": "Release engineering, simplified"
+      "org.opencontainers.image.created": "{{.Date}}"
+      "org.opencontainers.image.name": "{{.ProjectName}}"
+      "org.opencontainers.image.revision": "{{.FullCommit}}"
+      "org.opencontainers.image.version": "{{.Version}}"
+      "org.opencontainers.image.source": "{{.GitURL}}"
+
 signs:
-- cmd: cosign
-  env:
-  - COSIGN_EXPERIMENTAL=1
-  args:
-  - "sign-blob"
-  - "--rekor-url=https://rekor.sigstore.dev"
-  - "--oidc-issuer=https://oauth2.sigstore.dev/auth"
-  - "--output=${signature}"
-  - "${artifact}"
-  artifacts: all
+  - cmd: cosign
+    env:
+      - COSIGN_EXPERIMENTAL=1
+    args:
+      - "sign-blob"
+      - "--rekor-url=https://rekor.sigstore.dev"
+      - "--oidc-issuer=https://oauth2.sigstore.dev/auth"
+      - "--output=${signature}"
+      - "${artifact}"
+    artifacts: all
 
 docker_signs:
-- artifacts: all
-  env:
-  - COSIGN_EXPERIMENTAL=1
-  args:
-  - "sign"
-  - "--rekor-url=https://rekor.sigstore.dev"
-  - "--oidc-issuer=https://oauth2.sigstore.dev/auth"
-  - "${artifact}"
-
+  - artifacts: all
+    env:
+      - COSIGN_EXPERIMENTAL=1
+    args:
+      - "sign"
+      - "--rekor-url=https://rekor.sigstore.dev"
+      - "--oidc-issuer=https://oauth2.sigstore.dev/auth"
+      - "${artifact}"
