@@ -19,8 +19,6 @@ dockers_v2:
       - "v{{ .Version }}"
       - "{{ if .IsNightly }}nightly{{ end }}"
       - "{{ if not .IsNightly }}latest{{ end }}"
-    extra_files:
-      - scripts/entrypoint.sh
     platforms:
       - linux/amd64
       - linux/arm64
