@@ -14,31 +14,31 @@ builds:
     # targets: [go_first_class]
     #
 
-nfpms:
-  - formats:
-      - deb
-      - rpm
-      - apk
-
-cloudsmiths:
-  - organization: goreleaser-test1
-    repository: test1
-    formats:
-      - deb
-      - rpm
-      - apk
-    distributions:
-      deb:
-        - "ubuntu/any-version"
-        - "debian/any-version"
-      rpm:
-        - "el/any-version"
-        - "fedora/any-version"
-      alpine:
-        - "alpine/any-version"
-    component: main
-    republish: true
-
+# nfpms:
+#   - formats:
+#       - deb
+#       - rpm
+#       - apk
+#
+# cloudsmiths:
+#   - organization: goreleaser-test1
+#     repository: test1
+#     formats:
+#       - deb
+#       - rpm
+#       - apk
+#     distributions:
+#       deb:
+#         - "ubuntu/any-version"
+#         - "debian/any-version"
+#       rpm:
+#         - "el/any-version"
+#         - "fedora/any-version"
+#       alpine:
+#         - "alpine/any-version"
+#     component: main
+#     republish: true
+#
 # npms:
 #   - name: "@caarlos0/goreleaser-test"
 #     repository: https://github.com/goreleaser/goreleaser-pro
@@ -138,3 +138,9 @@ archives:
 # kos:
 #   - repository: ghcr.io/caarlos0/test-ko:{{ .Version }}
 #     preserve_import_paths: false
+
+dockers_v2:
+  - images:
+      - caarlos0/bar
+    flags:
+      - "--nope"
