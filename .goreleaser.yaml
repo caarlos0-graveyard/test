@@ -67,23 +67,25 @@ builds:
 #         install: |
 #           system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/foo"]
 #
-# dockers_v2:
-#   - images:
-#       - "ghcr.io/caarlos0/test-dockers-v2"
-#     tags:
-#       - "v{{ .Version }}"
-#       - "{{ if .IsNightly }}nightly{{ end }}"
-#       - "{{ if not .IsNightly }}latest{{ end }}"
-#     platforms:
-#       - linux/amd64
-#       - linux/arm64
-#     labels:
-#       "org.opencontainers.image.description": "Some description"
-#       "org.opencontainers.image.created": "{{.Date}}"
-#       "org.opencontainers.image.name": "{{.ProjectName}}"
-#       "org.opencontainers.image.revision": "{{.FullCommit}}"
-#       "org.opencontainers.image.version": "{{.Version}}"
-#       "org.opencontainers.image.source": "{{.GitURL}}"
+dockers_v2:
+  - images:
+      - "ghcr.io/caarlos0/test-dockers-v2"
+    tags:
+      - "v{{ .Version }}"
+      - "{{ if .IsNightly }}nightly{{ end }}"
+      - "{{ if not .IsNightly }}latest{{ end }}"
+    platforms:
+      - linux/amd64
+    sbom: false
+    flags:
+      - "--provenance=false"
+    labels:
+      "org.opencontainers.image.description": "Some description"
+      "org.opencontainers.image.created": "{{.Date}}"
+      "org.opencontainers.image.name": "{{.ProjectName}}"
+      "org.opencontainers.image.revision": "{{.FullCommit}}"
+      "org.opencontainers.image.version": "{{.Version}}"
+      "org.opencontainers.image.source": "{{.GitURL}}"
 # # notarize:
 # #   macos:
 # #     - enabled: '{{ isEnvSet "MACOS_SIGN_P12" }}'
