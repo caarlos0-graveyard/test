@@ -1,6 +1,4 @@
 FROM alpine
 ARG TARGETPLATFORM
 COPY $TARGETPLATFORM/mybin /usr/bin/mybin
-RUN echo "NOOOOOOOOOOOOOOO"
-RUN exit 1
 ENTRYPOINT ["/usr/bin/mybin"]

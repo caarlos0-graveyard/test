@@ -2,6 +2,7 @@
 # This is an example .goreleaser.yml file with some sensible defaults.
 # Make sure to check the documentation at https://goreleaser.com
 version: 2
+
 # before:
 #   hooks:
 #     # You may remove this if you don't use go modules.
@@ -52,40 +53,41 @@ builds:
 #       - bun
 #       - deno
 #       - docker
-# homebrew_casks:
-#   - repository:
-#       owner: caarlos0
-#       name: test
-#     caveats: "Test formula, dont use it. It doesnt do anything"
-#     alternative_names:
-#       - test@{{ .Major }}
-#     binary: foo
-#     conflicts:
-#       - formula: test
-#     hooks:
-#       post:
-#         install: |
-#           system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/foo"]
+homebrew_casks:
+  - repository:
+      owner: caarlos0
+      name: test
+    caveats: "Test formula, dont use it. It doesnt do anything"
+    alternative_names:
+      - test@{{ .Major }}
+    binary: foo
+    conflicts:
+      - formula: test
+    hooks:
+      post:
+        install: |
+          system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/foo"]
 #
 dockers_v2:
   - images:
       - "ghcr.io/caarlos0/test-dockers-v2"
-    tags:
-      - "v{{ .Version }}"
-      - "{{ if .IsNightly }}nightly{{ end }}"
-      - "{{ if not .IsNightly }}latest{{ end }}"
-    platforms:
-      - linux/amd64
-    sbom: false
-    flags:
-      - "--provenance=false"
-    labels:
-      "org.opencontainers.image.description": "Some description"
-      "org.opencontainers.image.created": "{{.Date}}"
-      "org.opencontainers.image.name": "{{.ProjectName}}"
-      "org.opencontainers.image.revision": "{{.FullCommit}}"
-      "org.opencontainers.image.version": "{{.Version}}"
-      "org.opencontainers.image.source": "{{.GitURL}}"
+    # tags:
+    #   - "v{{ .Version }}"
+    #   - "{{ if .IsNightly }}nightly{{ end }}"
+    #   - "{{ if not .IsNightly }}latest{{ end }}"
+    # platforms:
+    #   - linux/amd64
+    # sbom: false
+    dockerfile: Dockerfile.v2
+    # flags:
+    #   - "--provenance=false"
+    # labels:
+    #   "org.opencontainers.image.description": "Some description"
+    #   "org.opencontainers.image.created": "{{.Date}}"
+    #   "org.opencontainers.image.name": "{{.ProjectName}}"
+    #   "org.opencontainers.image.revision": "{{.FullCommit}}"
+    #   "org.opencontainers.image.version": "{{.Version}}"
+    #   "org.opencontainers.image.source": "{{.GitURL}}"
 # # notarize:
 # #   macos:
 # #     - enabled: '{{ isEnvSet "MACOS_SIGN_P12" }}'
@@ -99,6 +101,7 @@ dockers_v2:
 # #
 archives:
   - formats: [zip]
+    wrap_in_directory: "{{.ProjectName}}_{{.Version}}_{{.Os}}_{{.Arch}}"
 # dockers:
 # - image_templates: ["caarlos0/moises:{{.Version}}-amd64"]
 #   use: buildx
@@ -141,6 +144,6 @@ archives:
 #   - repository: ghcr.io/caarlos0/test-ko:{{ .Version }}
 #     preserve_import_paths: false
 
-dockers_v2:
-  - images:
-      - caarlos0/bar
+# dockers_v2:
+#   - images:
+#       - caarlos0/bar
